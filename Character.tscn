@@ -1,0 +1,75 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://assets/Rogue/Walk/walk1.png" type="Texture" id=1]
+[ext_resource path="res://assets/Rogue/Walk/walk2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Rogue/Walk/walk3.png" type="Texture" id=3]
+[ext_resource path="res://assets/Rogue/Run/run2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Rogue/Jump/jump7.png" type="Texture" id=5]
+[ext_resource path="res://assets/Rogue/Run/run4.png" type="Texture" id=6]
+[ext_resource path="res://assets/Rogue/Walk/walk6.png" type="Texture" id=7]
+[ext_resource path="res://assets/Rogue/Walk/walk4.png" type="Texture" id=8]
+[ext_resource path="res://assets/Rogue/Run/run8.png" type="Texture" id=9]
+[ext_resource path="res://assets/Rogue/Walk/walk5.png" type="Texture" id=10]
+[ext_resource path="res://assets/Rogue/Run/run7.png" type="Texture" id=11]
+[ext_resource path="res://assets/Rogue/Jump/jump3.png" type="Texture" id=12]
+[ext_resource path="res://assets/Rogue/Run/run6.png" type="Texture" id=13]
+[ext_resource path="res://assets/Rogue/Jump/jump6.png" type="Texture" id=14]
+[ext_resource path="res://assets/Rogue/Run/run1.png" type="Texture" id=15]
+[ext_resource path="res://assets/Rogue/Jump/jump1.png" type="Texture" id=16]
+[ext_resource path="res://assets/Rogue/Jump/jump5.png" type="Texture" id=17]
+[ext_resource path="res://assets/Rogue/Run/run3.png" type="Texture" id=18]
+[ext_resource path="res://assets/Rogue/Jump/jump2.png" type="Texture" id=19]
+[ext_resource path="res://assets/Rogue/Run/run5.png" type="Texture" id=20]
+[ext_resource path="res://Character.gd" type="Script" id=21]
+
+[sub_resource type="PhysicsMaterial" id=3]
+friction = 0.0
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 15 ), ExtResource( 4 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "SPRINT",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 19 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "JUMP_BEGIN",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": false,
+"name": "IN_AIR",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 14 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "JUMP_END",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "WALK",
+"speed": 5.0
+} ]
+
+[sub_resource type="RayShape2D" id=2]
+length = 18.4432
+
+[node name="Character" type="RigidBody2D"]
+mode = 2
+physics_material_override = SubResource( 3 )
+contacts_reported = 3
+script = ExtResource( 21 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "WALK"
+playing = true
+offset = Vector2( 20, -29.247 )
+
+[node name="RAY_COLLISION" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 13.826, -23.7904, -0.492905, 0.0744781, -13.3976, -21.1387, -0.492905, -31.0382 )
