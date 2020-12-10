@@ -1,16 +1,406 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_1_16x16.png" type="Texture" id=1]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_32_16x16.png" type="Texture" id=2]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_30_16x16.png" type="Texture" id=3]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_31_16x16.png" type="Texture" id=4]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_34_16x16.png" type="Texture" id=5]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_35_16x16.png" type="Texture" id=6]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_33_16x16.png" type="Texture" id=7]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_3_16x16.png" type="Texture" id=8]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_6_16x16.png" type="Texture" id=9]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_7_16x16.png" type="Texture" id=10]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_8_16x16.png" type="Texture" id=11]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Dirt_1_16x16.png" type="Texture" id=12]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_5_16x16.png" type="Texture" id=13]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_9_16x16.png" type="Texture" id=14]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_10_16x16.png" type="Texture" id=15]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_11_16x16.png" type="Texture" id=16]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Dirt_2_16x16.png" type="Texture" id=17]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_2_16x16.png" type="Texture" id=18]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_12_16x16.png" type="Texture" id=19]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_4_16x16.png" type="Texture" id=20]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_13_16x16.png" type="Texture" id=21]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_14_16x16.png" type="Texture" id=22]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_15_16x16.png" type="Texture" id=23]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_16_16x16.png" type="Texture" id=24]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_17_16x16.png" type="Texture" id=25]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_18_16x16.png" type="Texture" id=26]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_19_16x16.png" type="Texture" id=27]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_20_16x16.png" type="Texture" id=28]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_22_16x16.png" type="Texture" id=29]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_23_16x16.png" type="Texture" id=30]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_24_16x16.png" type="Texture" id=31]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_21_16x16.png" type="Texture" id=32]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_25_16x16.png" type="Texture" id=33]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_26_16x16.png" type="Texture" id=34]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_27_16x16.png" type="Texture" id=35]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_28_16x16.png" type="Texture" id=36]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_29_16x16.png" type="Texture" id=37]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_37_16x16.png" type="Texture" id=38]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_36_16x16.png" type="Texture" id=39]
+[ext_resource path="res://assets/tilemaps/BasicGreenTiles/Green_38_16x16.png" type="Texture" id=40]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 32 )
 
 [node name="Green_Tiles" type="Node2D"]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Dirt 1" type="Sprite" parent="."]
+texture = ExtResource( 12 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dirt 1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dirt 1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Dirt 2" type="Sprite" parent="."]
+position = Vector2( 64, 0 )
+texture = ExtResource( 17 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dirt 2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dirt 2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 1" type="Sprite" parent="."]
+position = Vector2( 128, 0 )
 texture = ExtResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
-shape = SubResource( 1 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 1/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 2" type="Sprite" parent="."]
+position = Vector2( 192, 0 )
+texture = ExtResource( 18 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 2/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 3" type="Sprite" parent="."]
+position = Vector2( 256, 0 )
+texture = ExtResource( 8 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 3/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 4" type="Sprite" parent="."]
+position = Vector2( 320, 0 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 4/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 5" type="Sprite" parent="."]
+position = Vector2( 384, 0 )
+texture = ExtResource( 13 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 5/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 6" type="Sprite" parent="."]
+position = Vector2( 448, 0 )
+texture = ExtResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 6/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 7" type="Sprite" parent="."]
+position = Vector2( 512, 0 )
+texture = ExtResource( 10 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 7/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 8" type="Sprite" parent="."]
+position = Vector2( 576, 0 )
+texture = ExtResource( 11 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 8/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 9" type="Sprite" parent="."]
+position = Vector2( 640, 0 )
+texture = ExtResource( 14 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 9/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 10" type="Sprite" parent="."]
+position = Vector2( 704, 0 )
+texture = ExtResource( 15 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 10/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 11" type="Sprite" parent="."]
+position = Vector2( 0, 64 )
+texture = ExtResource( 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 11/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 12" type="Sprite" parent="."]
+position = Vector2( 64, 64 )
+texture = ExtResource( 19 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 12/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 13" type="Sprite" parent="."]
+position = Vector2( 128, 64 )
+texture = ExtResource( 21 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 13/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 14" type="Sprite" parent="."]
+position = Vector2( 192, 64 )
+texture = ExtResource( 22 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 14"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 14/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 15" type="Sprite" parent="."]
+position = Vector2( 256, 64 )
+texture = ExtResource( 23 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 15"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 15/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 16" type="Sprite" parent="."]
+position = Vector2( 320, 64 )
+texture = ExtResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 16"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 16/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 17" type="Sprite" parent="."]
+position = Vector2( 384, 64 )
+texture = ExtResource( 25 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 17"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 17/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 18" type="Sprite" parent="."]
+position = Vector2( 448, 64 )
+texture = ExtResource( 26 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 18"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 18/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 19" type="Sprite" parent="."]
+position = Vector2( 512, 64 )
+texture = ExtResource( 27 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 19"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 19/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 20" type="Sprite" parent="."]
+position = Vector2( 640, 64 )
+texture = ExtResource( 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 20"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 20/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 21" type="Sprite" parent="."]
+position = Vector2( 576, 64 )
+texture = ExtResource( 28 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 21"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 21/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 22" type="Sprite" parent="."]
+position = Vector2( 704, 64 )
+texture = ExtResource( 29 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 22"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 22/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 23" type="Sprite" parent="."]
+position = Vector2( 0, 128 )
+texture = ExtResource( 30 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 23"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 23/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 24" type="Sprite" parent="."]
+position = Vector2( 64, 128 )
+texture = ExtResource( 31 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 24"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 24/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 25" type="Sprite" parent="."]
+position = Vector2( 128, 128 )
+texture = ExtResource( 33 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 25"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 25/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 26" type="Sprite" parent="."]
+position = Vector2( 192, 128 )
+texture = ExtResource( 34 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 26"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 26/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 27" type="Sprite" parent="."]
+position = Vector2( 256, 128 )
+texture = ExtResource( 35 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 27"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 27/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 28" type="Sprite" parent="."]
+position = Vector2( 320, 128 )
+texture = ExtResource( 36 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 28"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 28/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 29" type="Sprite" parent="."]
+position = Vector2( 384, 128 )
+texture = ExtResource( 37 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 29"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 29/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 30" type="Sprite" parent="."]
+position = Vector2( 448, 128 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 30"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 30/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 31" type="Sprite" parent="."]
+position = Vector2( 512, 128 )
+texture = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 31"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 31/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 32" type="Sprite" parent="."]
+position = Vector2( 576, 128 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 32"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 32/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 33" type="Sprite" parent="."]
+position = Vector2( 640, 128 )
+texture = ExtResource( 7 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 33"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 33/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 34" type="Sprite" parent="."]
+position = Vector2( 704, 128 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 34"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 34/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 35" type="Sprite" parent="."]
+position = Vector2( 0, 192 )
+texture = ExtResource( 6 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 35"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 35/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 36" type="Sprite" parent="."]
+position = Vector2( 64, 192 )
+texture = ExtResource( 39 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 36"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 36/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 37" type="Sprite" parent="."]
+position = Vector2( 128, 192 )
+texture = ExtResource( 38 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 37"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 37/StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Green 38" type="Sprite" parent="."]
+position = Vector2( 192, 192 )
+texture = ExtResource( 40 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Green 38"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Green 38/StaticBody2D"]
+shape = SubResource( 2 )
