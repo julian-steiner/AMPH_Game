@@ -2,10 +2,9 @@ class_name Character
 extends RigidBody2D
 
 var on_floor = false;
-const max_velocity = 50;
+const walk_velocity = 100;
 const sprint_velocity = 150;
 const acceleration = 80;
-const sprint_acceleration = 100;
 const jump_speed = 100;
 
 var animation_priority = 0;
@@ -30,7 +29,7 @@ func handle_animations(var velocity, var priority, step):
 	elif (animation_priority == 2):
 		$AnimatedSprite.play("JUMP_END");
 		animation_counter += step;
-		if (animation_counter >= 0.3):
+		if (animation_counter >= 0.2):
 			animation_priority = 0;
 			animation_counter = 0;
 	#PLAY ONE OF THE ATTACKING ANIMATION IF THE CHARACTER IS ATTACKING
@@ -41,13 +40,13 @@ func handle_animations(var velocity, var priority, step):
 			if (animation_counter >= 1):
 				animation_priority = 0;
 				animation_counter = 0;
-		elif abs(velocity.x) != 0 and abs(velocity.x) <= max_velocity:
+		elif abs(velocity.x) != 0 and abs(velocity.x) <= walk_velocity:
 			$AnimatedSprite.play("ATTACK_MOVING");
 			animation_counter += step;
 			if (animation_counter >= 1):
 				animation_priority = 0;
 				animation_counter = 0;
-		elif abs(velocity.x) > max_velocity:
+		elif abs(velocity.x) > walk_velocity:
 			$AnimatedSprite.play("ATTACK_SPRINTING");
 			animation_counter += step;
 			if (animation_counter >= 1):
@@ -55,9 +54,9 @@ func handle_animations(var velocity, var priority, step):
 				animation_counter = 0;
 		
 	else:
-		if abs(velocity.x) > 0 and abs(velocity.x) <= max_velocity:
+		if abs(velocity.x) > 0 and abs(velocity.x) <= walk_velocity:
 			$AnimatedSprite.play("WALK");
-		elif abs(velocity.x) > max_velocity:
+		elif abs(velocity.x) > walk_velocity:
 			$AnimatedSprite.play("SPRINT");
 		else:
 			$AnimatedSprite.play("IDLE");
@@ -66,8 +65,6 @@ func _integrate_forces(state):
 	var step = state.get_step();
 	var velocity = state.get_linear_velocity();
 	var key_pressed = false;
-	var max_speed = max_velocity;
-	var accel = acceleration;
 	on_floor = false;
 	
 	cooldown = max(cooldown - step, 0);
@@ -90,21 +87,15 @@ func _integrate_forces(state):
 			#set the animation_priority to attack
 			animation_priority = 3;
 			cooldown = 2;
-			
-		#check if the character is sprinting
-		if(Input.is_key_pressed(KEY_SHIFT) or abs(velocity.x) > max_velocity):
-			print("SPRINTING");
-			accel = sprint_acceleration;
-			max_speed = sprint_velocity;
 		
 		#basic movements
-		if(Input.is_action_pressed("ui_left") or Input.is_key_pressed(65)):
-			velocity.x = max(velocity.x - accel * step, -max_speed);
+		if(Input.is_action_pressed("ui_left")):
+			velocity.x = max(velocity.x - acceleration * step, -sprint_velocity);
 			key_pressed = true;
-		if(Input.is_action_pressed(("ui_right")) or Input.is_key_pressed((68))):
-			velocity.x = min(velocity.x + accel * step, max_speed);
+		if(Input.is_action_pressed("ui_right")):
+			velocity.x = min(velocity.x + acceleration * step, sprint_velocity);
 			key_pressed = true;
-		if(Input.is_action_pressed(("ui_up")) or Input.is_key_pressed((87))):
+		if(Input.is_action_pressed("ui_up")):
 			velocity.y = -jump_speed
 			key_pressed = true;
 			# set the animation priority to jump_begin
@@ -113,7 +104,7 @@ func _integrate_forces(state):
 		if(not key_pressed):
 			var speed = abs(velocity.x);
 			var direction = sign(velocity.x)
-			speed = max(speed - accel * step, 0)
+			speed = max(speed - acceleration * step, 0)
 			velocity.x = speed * direction;
 	
 	handle_animations(velocity, 0, step);
