@@ -60,9 +60,9 @@ animations = [ {
 "name": "Death",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 23 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": true,
-"name": "Hurt",
+"name": "Fly",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 20 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 11 ) ],
@@ -70,9 +70,9 @@ animations = [ {
 "name": "Attak",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 23 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "Fly",
+"name": "Hurt",
 "speed": 5.0
 } ]
 
@@ -80,7 +80,7 @@ animations = [ {
 radius = 18.2193
 
 [sub_resource type="RayShape2D" id=4]
-length = 18.4323
+length = 18.6888
 
 [node name="FlyingCharakter" type="Node2D"]
 
@@ -91,19 +91,23 @@ physics_material_override = SubResource( 1 )
 script = ExtResource( 45 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D"]
-position = Vector2( -0.0992126, 0 )
+position = Vector2( 0.842346, -0.298584 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "Fly"
-frame = 1
+frame = 7
 speed_scale = 3.0
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -1.64835, -1.66984 )
+position = Vector2( 0, -1.67 )
 rotation = 1.5708
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -1.76776, -1.59097 )
+position = Vector2( -1, -1.674 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( 1, -1.674 )
 shape = SubResource( 4 )
