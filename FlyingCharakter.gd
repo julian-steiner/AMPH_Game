@@ -33,22 +33,25 @@ func _integrate_forces(state):
 #	if Input.is_action_pressed("ui_KP 6") and velocity.y == 0:
 #		velocity.x = max(velocity.x + xflight_acc*step, xflight_max)
 	
-	if Input.is_action_just_pressed("ui_KP enter"):
-		$AnimatedSprite.play("Attak")
-		print("Attak")
-	
-	
-	if velocity.y != 0:
-		$AnimatedSprite.play("Fly")
-	
-	else:
-		$AnimatedSprite.play("Idle")
-	
+	velocity += state.get_total_gravity() * step
+	state.set_linear_velocity(velocity)
+	_animation_handling(velocity,step)
+
+func _animation_handling(velocity,step):
 	if velocity.x != 0:
 		if velocity.x > 0:
 			$AnimatedSprite.flip_h = false
 		else:
 			$AnimatedSprite.flip_h = true
 	
-	velocity += state.get_total_gravity() * step
-	state.set_linear_velocity(velocity)
+	if Input.is_action_pressed("ui_KP enter"):
+		$AnimatedSprite.play("Attak")
+	
+	else:
+		if velocity.y != 0:
+			$AnimatedSprite.play("Fly")
+
+		else:
+			$AnimatedSprite.play("Idle")
+
+		

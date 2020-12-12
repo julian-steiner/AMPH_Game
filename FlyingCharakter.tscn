@@ -65,14 +65,14 @@ animations = [ {
 "name": "Fly",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "Attak",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ), ExtResource( 23 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Hurt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "Attak",
 "speed": 5.0
 } ]
 
@@ -95,7 +95,7 @@ position = Vector2( 0.842346, -0.298584 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "Fly"
-frame = 7
+frame = 4
 speed_scale = 3.0
 playing = true
 
