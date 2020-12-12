@@ -5,11 +5,14 @@ var on_floor = false;
 const walk_velocity = 100;
 const sprint_velocity = 150;
 const acceleration = 80;
-const jump_speed = 100;
+const jump_speed = 150;
 
 var animation_priority = 0;
 var on_floor_previous = false;
 var animation_counter = 0;
+
+var hp = 100;
+var hp_p = 100; #Variable to store the previous hp
 
 var cooldown = 0;
 
@@ -21,6 +24,15 @@ func handle_animations(var velocity, var priority, step):
 	else:
 		$AnimatedSprite.flip_h = true;
 		$AnimatedSprite.offset.x = -20;
+		
+	if hp <= 0:
+		$AnimatedSprite.offset.y = -10;
+		$AnimatedSprite.play("DEATH");
+		animation_priority = 5;
+		
+	if hp < hp_p:
+		$AnimatedSprite.play("HURT");
+		animation_priority = 4;
 				
 	#PLAY THE JUMP AND IN_AIR ANIMATION IF THE CHARACTER IS JUMPING
 	if (animation_priority == 1):
@@ -52,6 +64,18 @@ func handle_animations(var velocity, var priority, step):
 			if (animation_counter >= 1):
 				animation_priority = 0;
 				animation_counter = 0;
+	#wait for the hurt animation to be finished
+	elif (animation_priority == 4):
+		animation_counter += step;
+		if (animation_counter >= 0.4):
+			animation_priority = 0;
+			animation_counter = 0;
+	
+	elif (animation_priority == 5):
+		animation_counter += step;
+		if (animation_counter >= 1):
+			queue_free();
+			print("Deleted")
 		
 	else:
 		if abs(velocity.x) > 0 and abs(velocity.x) <= walk_velocity:
@@ -60,6 +84,8 @@ func handle_animations(var velocity, var priority, step):
 			$AnimatedSprite.play("SPRINT");
 		else:
 			$AnimatedSprite.play("IDLE");
+	
+	hp_p = hp;
 
 func _integrate_forces(state):
 	var step = state.get_step();
@@ -77,7 +103,6 @@ func _integrate_forces(state):
 	
 	#check if the player just hit the ground
 	if(on_floor == true and on_floor_previous == false):
-		print("Hit floor");
 		#set the animationPriority to jump_end
 		animation_priority = 2;
 	on_floor_previous = on_floor;
@@ -87,6 +112,10 @@ func _integrate_forces(state):
 			#set the animation_priority to attack
 			animation_priority = 3;
 			cooldown = 2;
+		if(Input.is_mouse_button_pressed(2) and cooldown == 0):
+		#set the animation_priority to attack
+			hp -= 50;
+			cooldown = 1;
 		
 		#basic movements
 		if(Input.is_action_pressed("ui_left")):
@@ -100,7 +129,7 @@ func _integrate_forces(state):
 			key_pressed = true;
 			# set the animation priority to jump_begin
 			animation_priority = 1;
-			
+		
 		if(not key_pressed):
 			var speed = abs(velocity.x);
 			var direction = sign(velocity.x)
