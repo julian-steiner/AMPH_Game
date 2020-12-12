@@ -25,13 +25,9 @@ func _integrate_forces(state):
 	
 	if Input.is_action_just_pressed("ui_KP 4"):
 		velocity.x = min(velocity.x - xflight_acc*step, -xflight_max)
-#	if Input.is_action_pressed("ui_KP 4") and velocity.y == 0:
-#		velocity.x = min(velocity.x - xflight_acc*step, -xflight_max)
 #
 	if Input.is_action_just_pressed("ui_KP 6"):
 		velocity.x = max(velocity.x + xflight_acc*step, xflight_max)
-#	if Input.is_action_pressed("ui_KP 6") and velocity.y == 0:
-#		velocity.x = max(velocity.x + xflight_acc*step, xflight_max)
 	
 	velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(velocity)
