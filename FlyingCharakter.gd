@@ -7,6 +7,8 @@ const downflight_max = -100;
 const xflight_max = 300;
 const xflight_acc = 120;
 
+var hp = 100;
+
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
 	var step = state.get_step()
@@ -33,6 +35,10 @@ func _integrate_forces(state):
 	state.set_linear_velocity(velocity)
 	_animation_handling(velocity,step)
 
+func _on_Flyingcharaker_body_entred(body):
+	if body == Character:
+		hp -= 10
+
 func _animation_handling(velocity,step):
 	if velocity.x != 0:
 		if velocity.x > 0:
@@ -49,5 +55,5 @@ func _animation_handling(velocity,step):
 
 		else:
 			$AnimatedSprite.play("Idle")
-
-		
+	
+	
