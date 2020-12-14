@@ -46,20 +46,20 @@
 [ext_resource path="res://_02/02-Fly/__Bat02_Fly_005.png" type="Texture" id=44]
 [ext_resource path="res://FlyingCharakter.gd" type="Script" id=45]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 35 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 36 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 37 ), ExtResource( 38 ) ],
-"loop": true,
-"name": "Fly",
+"frames": [ ExtResource( 16 ), ExtResource( 23 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "Hurt",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
+"loop": false,
 "name": "Death",
 "speed": 5.0
 }, {
@@ -68,19 +68,19 @@ animations = [ {
 "name": "Attak",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 23 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 24 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": true,
-"name": "Hurt",
+"name": "Fly",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 19.5717
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 18.2193
 
-[sub_resource type="RayShape2D" id=5]
+[sub_resource type="RayShape2D" id=4]
 length = 18.6888
 
 [node name="FlyingCharakter" type="RigidBody2D"]
@@ -90,28 +90,28 @@ script = ExtResource( 45 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.833029, 1.36032 )
 scale = Vector2( 0.2, 0.2 )
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "Fly"
-frame = 2
+frame = 1
 speed_scale = 3.0
 playing = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0093174, -0.0110978 )
 rotation = 1.5708
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -1.00932, -0.0150979 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( 0.990683, -0.0150979 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="." to="." method="_on_FlyingCharakter_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

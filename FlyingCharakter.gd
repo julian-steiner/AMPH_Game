@@ -7,6 +7,8 @@ const downflight_max = -100;
 const xflight_max = 300;
 const xflight_acc = 120;
 
+var hp = 100;
+
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
 	var step = state.get_step()
@@ -48,8 +50,11 @@ func _animation_handling(velocity,step):
 			$AnimatedSprite.play("Fly")
 
 		else:
+#			if not $AnimatedSprite.
 			$AnimatedSprite.play("Idle")
 
 func _on_Area2D_body_entered(body):
 	if body is Character:
-		print("j")
+		hp -= 10
+		print("Hurt")
+		$AnimatedSprite.play("Hurt")
