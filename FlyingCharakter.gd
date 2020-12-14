@@ -35,10 +35,6 @@ func _integrate_forces(state):
 	state.set_linear_velocity(velocity)
 	_animation_handling(velocity,step)
 
-func _on_Flyingcharaker_body_entred(body):
-	if body == Character:
-		hp -= 10
-
 func _animation_handling(velocity,step):
 	if velocity.x != 0:
 		if velocity.x > 0:
@@ -55,5 +51,3 @@ func _animation_handling(velocity,step):
 
 		else:
 			$AnimatedSprite.play("Idle")
-	
-	

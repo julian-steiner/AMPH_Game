@@ -76,6 +76,9 @@ func handle_animations(var velocity, var priority, step):
 		if (animation_counter >= 1):
 			queue_free();
 			print("Deleted")
+	
+	elif (animation_priority == 6):
+		$AnimatedSprite.play("IN_AIR");
 		
 	else:
 		if abs(velocity.x) > 0 and abs(velocity.x) <= walk_velocity:
@@ -106,16 +109,17 @@ func _integrate_forces(state):
 		#set the animationPriority to jump_end
 		animation_priority = 2;
 	on_floor_previous = on_floor;
-		
+	
+	if(Input.is_mouse_button_pressed(2) and cooldown == 0):
+		#set the animation_priority to attack
+			hp -= 50;
+			cooldown = 1;
+	
 	if(on_floor):
 		if(Input.is_mouse_button_pressed(1) and cooldown == 0):
 			#set the animation_priority to attack
 			animation_priority = 3;
-			cooldown = 2;
-		if(Input.is_mouse_button_pressed(2) and cooldown == 0):
-		#set the animation_priority to attack
-			hp -= 50;
-			cooldown = 1;
+			cooldown = 2
 		
 		#basic movements
 		if(Input.is_action_pressed("ui_left")):
@@ -135,8 +139,16 @@ func _integrate_forces(state):
 			var direction = sign(velocity.x)
 			speed = max(speed - acceleration * step, 0)
 			velocity.x = speed * direction;
+	else:
+		if (animation_priority == 0):
+			animation_priority = 6
 	
 	handle_animations(velocity, 0, step);
 
 	
 	state.linear_velocity = velocity;
+
+func _on_Area2D_body_entered(body):
+	if body is FlyingCharakter:
+		print("HIT")
+		hp -= 10
