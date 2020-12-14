@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Character",
 "language": "GDScript",
-"path": "res://Character.gd"
+"path": "res://Player/Character.gd"
 }, {
 "base": "RigidBody2D",
 "class": "FlyingCharakter",
