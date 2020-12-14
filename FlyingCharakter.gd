@@ -8,10 +8,13 @@ const xflight_max = 300;
 const xflight_acc = 120;
 
 var hp = 100;
+var counter = 0;
+var step = 0;
+var priority = false;
 
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
-	var step = state.get_step()
+	step = state.get_step()
 	var on_floor = false
 	
 	for i in range(state.get_contact_count()):
@@ -33,28 +36,40 @@ func _integrate_forces(state):
 	
 	velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(velocity)
-	_animation_handling(velocity,step)
+	_animation_handling(velocity)
 
-func _animation_handling(velocity,step):
-	if velocity.x != 0:
-		if velocity.x > 0:
-			$AnimatedSprite.flip_h = false
-		else:
-			$AnimatedSprite.flip_h = true
-	
-	if Input.is_action_pressed("ui_KP enter"):
-		$AnimatedSprite.play("Attak")
-	
+func _animation_handling(velocity):
+	if hp <= 0:
+		$AnimatedSprite.play("Death")
+		counter += step
+		if counter >= 0.5:
+			queue_free()
+			counter = 0
+	elif priority == true:
+		$AnimatedSprite.play("Hurt")
+		counter += step
+		if counter >= 0.5:
+			counter = 0
+			priority = false
 	else:
-		if velocity.y != 0:
-			$AnimatedSprite.play("Fly")
-
+		if velocity.x != 0:
+			if velocity.x > 0:
+				$AnimatedSprite.flip_h = false
+			else:
+				$AnimatedSprite.flip_h = true
+		
+		if Input.is_action_pressed("ui_KP enter"):
+			$AnimatedSprite.play("Attak")
+		
 		else:
-#			if not $AnimatedSprite.
-			$AnimatedSprite.play("Idle")
+			if velocity.y != 0:
+				$AnimatedSprite.play("Fly")
+
+			else:
+				$AnimatedSprite.play("Idle")
 
 func _on_Area2D_body_entered(body):
 	if body is Character:
 		hp -= 10
 		print("Hurt")
-		$AnimatedSprite.play("Hurt")
+		priority = true
