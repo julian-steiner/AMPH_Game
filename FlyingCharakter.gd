@@ -60,6 +60,9 @@ func _animation_handling(velocity):
 		
 		if Input.is_action_pressed("ui_KP enter"):
 			$AnimatedSprite.play("Attak")
+			counter += step
+			if counter >= 0.5:
+				counter = 0
 		
 		else:
 			if velocity.y != 0:
