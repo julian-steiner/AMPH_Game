@@ -130,7 +130,7 @@ func _integrate_forces(state):
 		if(Input.is_action_pressed("ui_right")):
 			velocity.x = min(velocity.x + acceleration * step, sprint_velocity);
 			key_pressed = true;
-		if(Input.is_action_pressed("ui_up")):
+		if(Input.is_action_just_pressed("ui_up")):
 			velocity.y = -jump_speed
 			key_pressed = true;
 			# set the animation priority to jump_begin
@@ -150,7 +150,7 @@ func _integrate_forces(state):
 	
 	state.linear_velocity = velocity;
 
-func _on_Area2D_body_entered(body):
-	if body is FlyingCharakter:
-		print("HIT")
-		hp -= 10
+#func _on_Area2D_body_entered(body):
+#	if body is FlyingCharakter:
+#		print("HIT")
+#		hp -= 10

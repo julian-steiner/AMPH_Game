@@ -58,19 +58,19 @@ animations = [ {
 "name": "Hurt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "Death",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "Attak",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 37 ), ExtResource( 38 ) ],
 "loop": true,
 "name": "Fly",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 2 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 21 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "Attak",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": false,
+"name": "Death",
 "speed": 5.0
 } ]
 
@@ -92,7 +92,7 @@ position = Vector2( 0.833029, 1.36032 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "Fly"
-frame = 1
+frame = 5
 speed_scale = 3.0
 playing = true
 
