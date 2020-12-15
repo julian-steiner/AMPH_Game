@@ -53,8 +53,8 @@ func _animation_handling(velocity,step):
 #			if not $AnimatedSprite.
 			$AnimatedSprite.play("Idle")
 
-func _on_Area2D_body_entered(body):
-	if body is Character:
-		hp -= 10
-		print("Hurt")
-		$AnimatedSprite.play("Hurt")
+#func _on_Area2D_body_entered(body):
+#	if body is Character:
+#		hp -= 10
+#		print("Hurt")
+#		$AnimatedSprite.play("Hurt")

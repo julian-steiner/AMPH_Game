@@ -10,13 +10,15 @@ const jump_speed = 150;
 var animation_priority = 0;
 var on_floor_previous = false;
 var animation_counter = 0;
+var step = 0;
 
 var hp = 100;
 var hp_p = 100; #Variable to store the previous hp
 
 var cooldown = 0;
 
-func handle_animations(var velocity, var priority, step):
+func handle_animations(var velocity, var priority):
+	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR
 	#CHANGE THE ORIENTATION OF THE CHARACTER ACCORDING TO THE DIRECTION IT'S MOVING
 	if sign(velocity.x) == 1:
 		$AnimatedSprite.flip_h = false;
@@ -91,7 +93,7 @@ func handle_animations(var velocity, var priority, step):
 	hp_p = hp;
 
 func _integrate_forces(state):
-	var step = state.get_step();
+	step = state.get_step();
 	var velocity = state.get_linear_velocity();
 	var key_pressed = false;
 	on_floor = false;
@@ -143,7 +145,7 @@ func _integrate_forces(state):
 		if (animation_priority == 0):
 			animation_priority = 6
 	
-	handle_animations(velocity, 0, step);
+	handle_animations(velocity, 0);
 
 	
 	state.linear_velocity = velocity;
