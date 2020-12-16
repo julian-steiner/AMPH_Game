@@ -11,6 +11,7 @@ var animation_priority = 0;
 var on_floor_previous = false;
 var animation_counter = 0;
 var step = 0;
+var c_position = 0;
 
 var hp = 100;
 var hp_p = 100; #Variable to store the previous hp
@@ -20,12 +21,13 @@ var cooldown = 0;
 func handle_animations(var velocity, var priority):
 	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR
 	#CHANGE THE ORIENTATION OF THE CHARACTER ACCORDING TO THE DIRECTION IT'S MOVING
-	if sign(velocity.x) == 1:
-		$AnimatedSprite.flip_h = false;
-		$AnimatedSprite.offset.x = 20;
-	else:
-		$AnimatedSprite.flip_h = true;
-		$AnimatedSprite.offset.x = -20;
+	if sign(velocity.x) != 0:
+		if sign(velocity.x) == 1:
+			$AnimatedSprite.flip_h = false;
+			$AnimatedSprite.offset.x = 20;
+		else:
+			$AnimatedSprite.flip_h = true;
+			$AnimatedSprite.offset.x = -20;
 		
 	if hp <= 0:
 		$AnimatedSprite.offset.y = -10;
@@ -89,15 +91,16 @@ func handle_animations(var velocity, var priority):
 			$AnimatedSprite.play("SPRINT");
 		else:
 			$AnimatedSprite.play("IDLE");
-	
+			
 	hp_p = hp;
 
 func _integrate_forces(state):
 	step = state.get_step();
+	c_position = state.transform[2];
 	var velocity = state.get_linear_velocity();
 	var key_pressed = false;
 	on_floor = false;
-	
+
 	cooldown = max(cooldown - step, 0);
 	
 	#check if the player touches the ground
@@ -146,7 +149,6 @@ func _integrate_forces(state):
 			animation_priority = 6
 	
 	handle_animations(velocity, 0);
-
 	
 	state.linear_velocity = velocity;
 
