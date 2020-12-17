@@ -6,16 +6,19 @@ const walk_velocity = 80;
 const sprint_velocity = 130;
 const acceleration = 130;
 const deadZone = 100;
-const attackZone = 200;
+const attackZone = 150;
 
 var animation_priority = 0;
 var on_floor_previous = false;
 var animation_counter = 0;
 var step = 0;
 var c_position = 0;
+var direction = 0;
 
 var playerInRange = false;
 var playerCopy = 0;
+var sword = 0;
+var attacking = false;
 
 var hp = 100;
 var hp_p = 100; #Variable to store the previous hp
@@ -26,7 +29,7 @@ func handle_animations(var velocity, var priority):
 	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR
 	#CHANGE THE ORIENTATION OF THE CHARACTER ACCORDING TO THE DIRECTION IT'S MOVING
 	if sign(velocity.x) != 0:
-		if sign(velocity.x) == 1:
+		if direction == 1:
 			$AnimatedSprite.flip_h = false;
 			$AnimatedSprite.offset.x = 20;
 		else:
@@ -48,6 +51,9 @@ func handle_animations(var velocity, var priority):
 		if (animation_counter >= 1):
 			animation_priority = 0;
 			animation_counter = 0;
+			end_attack();
+		elif (animation_counter >= 0.4):
+			init_attack();
 	#wait for the hurt animation to be finished
 	elif (animation_priority == 4):
 		animation_counter += step;
@@ -70,6 +76,18 @@ func handle_animations(var velocity, var priority):
 			$AnimatedSprite.play("IDLE");
 	
 	hp_p = hp;
+	
+func init_attack():
+	if(attacking == false):
+		attacking = true;
+		sword = load("res://Enemy//Sword.tscn").instance()
+		sword.transform[2].x = 70 *direction + -1 * direction
+		print(sword.transform[2].x)
+		add_child(sword)
+	
+func end_attack():
+	attacking = false;
+	sword.queue_free();
 
 func _integrate_forces(state):
 	step = state.get_step();
@@ -91,20 +109,27 @@ func _integrate_forces(state):
 		if(playerInRange):
 			#calculate the postiiondifference
 			var positionDifference = pow(pow(abs(playerCopy.c_position.x - c_position.x), 2) + pow(abs(playerCopy.c_position.y - c_position.y), 2), 0.5);
+			positionDifference *= sign(playerCopy.c_position.x - c_position.x)
 			if(positionDifference >= deadZone):
 				velocity.x = min(velocity.x + (acceleration * step), sprint_velocity);
+				direction = 1;
 			elif(positionDifference <= -deadZone):
 				velocity.x = max(velocity.x - (acceleration * step), -sprint_velocity);
+				direction = -1;
 			if(abs(positionDifference) < deadZone):
 				var speedX = abs(velocity.x)
 				var direction = sign(velocity.x)
 				velocity.x = max(speedX - (acceleration * 2) * step, 0) * direction;
-			print(positionDifference)
 			if(positionDifference <= attackZone and cooldown == 0):
 				animation_priority = 3;
 				cooldown = 3;
 				print("ATTACKING")
-			
+	
+		else:
+			var speedX = abs(velocity.x)
+			var direction = sign(velocity.x)
+			velocity.x = max(speedX - acceleration * step, 0) * direction;
+	
 	handle_animations(velocity, 0);
 	
 	cooldown = max(0, cooldown - step)

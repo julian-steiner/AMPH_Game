@@ -48,65 +48,65 @@
 [ext_resource path="res://assets/Barbarian/Attack_Extra/attack_extra1.png" type="Texture" id=46]
 [ext_resource path="res://assets/Barbarian/Attack_Extra/attack_extra3.png" type="Texture" id=47]
 
-[sub_resource type="PhysicsMaterial" id=4]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "SPRINT",
+"speed": 7.0
+}, {
 "frames": [ ExtResource( 21 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "IDLE",
 "speed": 3.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 41 ) ],
-"loop": true,
-"name": "FINISCHER_MOVE",
-"speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "WALK",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 39 ), ExtResource( 36 ) ],
-"loop": false,
-"name": "DEATH",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "SPRINT",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 28 ) ],
 "loop": false,
 "name": "HURT",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 39 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "DEATH",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "ATTACK_STANDING",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 41 ) ],
+"loop": true,
+"name": "FINISCHER_MOVE",
+"speed": 5.0
 } ]
 
 [sub_resource type="RayShape2D" id=3]
 length = 53.1664
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=4]
 radius = 557.716
 
 [node name="Enemy" type="RigidBody2D"]
 mode = 2
-physics_material_override = SubResource( 4 )
+physics_material_override = SubResource( 1 )
 contacts_reported = 3
 script = ExtResource( 44 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 40, -40 )
+position = Vector2( 0, -40 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "IDLE"
-frame = 3
+frame = 2
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -130,6 +130,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 visible = false
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="Range" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Area2D_body_exited"]
