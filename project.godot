@@ -12,6 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Character",
 "language": "GDScript",
+<<<<<<< Updated upstream
 "path": "res://Moving Objekt/Player/Character.gd"
 }, {
 "base": "Reference",
@@ -27,6 +28,17 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Character": "",
 "Enemy": "",
+=======
+"path": "res://Character.gd"
+}, {
+"base": "Node2D",
+"class": "FlyingCharakter",
+"language": "GDScript",
+"path": "res://FlyingCharakter.gd"
+} ]
+_global_script_class_icons={
+"Character": "",
+>>>>>>> Stashed changes
 "FlyingCharakter": ""
 }
 
