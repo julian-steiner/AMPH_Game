@@ -9,20 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "Character",
 "language": "GDScript",
-"path": "res://Player/Character.gd"
+"path": "res://Moving Objekt/Player/Character.gd"
 }, {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Enemy/Enemy.gd"
+"path": "res://Moving Objekt/Enemy/Enemy.gd"
 }, {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "FlyingCharakter",
 "language": "GDScript",
-"path": "res://FlyingCharakter.gd"
+"path": "res://Moving Objekt/Bat/FlyingCharakter.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
