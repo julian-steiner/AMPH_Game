@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "RigidBody2D",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Player/Character.gd"
 }, {
-"base": "Reference",
+"base": "RigidBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://Enemy/Enemy.gd"
@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "FlyingCharakter",
 "language": "GDScript",
-"path": "res://FlyingCharakter.gd"
+"path": "res://Bat/FlyingCharakter.gd"
 }, {
 "base": "Area2D",
 "class": "sword",
