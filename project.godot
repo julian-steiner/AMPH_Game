@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "FlyingCharakter",
 "language": "GDScript",
 "path": "res://FlyingCharakter.gd"
+}, {
+"base": "Area2D",
+"class": "sword",
+"language": "GDScript",
+"path": "res://Enemy/Sword.gd"
 } ]
 _global_script_class_icons={
 "Character": "",
 "Enemy": "",
-"FlyingCharakter": ""
+"FlyingCharakter": "",
+"sword": ""
 }
 
 [application]
