@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Player/Character.gd"
 }, {
-"base": "RigidBody2D",
+"base": "Reference",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://Enemy/Enemy.gd"
