@@ -94,6 +94,7 @@ func _integrate_forces(state):
 	var velocity = state.get_linear_velocity();
 	var key_pressed = false;
 	on_floor = false;
+	$Healthbar.value = hp
 	
 	cooldown = max(cooldown - step, 0);
 	
@@ -143,3 +144,4 @@ func _on_Area2D_body_exited(body):
 	if body is Character:
 		playerInRange = false;
 		playerCopy = 0;
+
