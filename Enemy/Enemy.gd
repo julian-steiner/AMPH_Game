@@ -20,8 +20,8 @@ var playerCopy = 0;
 var sword = 0;
 var attacking = false;
 
-var hp = 100;
-var hp_p = 100; #Variable to store the previous hp
+var hp = 40;
+var hp_p = 40; #Variable to store the previous hp
 
 var cooldown = 0;
 
@@ -43,6 +43,7 @@ func handle_animations(var velocity, var priority):
 		
 	if hp < hp_p:
 		$AnimatedSprite.play("HURT");
+		print("Hurt")
 		animation_priority = 4;
 				
 	elif (animation_priority == 3):
@@ -65,7 +66,6 @@ func handle_animations(var velocity, var priority):
 		animation_counter += step;
 		if (animation_counter >= 1):
 			queue_free();
-			print("Deleted")
 		
 	else:
 		if abs(velocity.x) > 0 and abs(velocity.x) <= walk_velocity:
@@ -82,7 +82,6 @@ func init_attack():
 		attacking = true;
 		sword = load("res://Enemy//Sword.tscn").instance()
 		sword.transform[2].x = 70 *direction + -1 * direction
-		print(sword.transform[2].x)
 		add_child(sword)
 	
 func end_attack():
@@ -122,8 +121,7 @@ func _integrate_forces(state):
 				velocity.x = max(speedX - (acceleration * 2) * step, 0) * direction;
 			if(positionDifference <= attackZone and cooldown == 0):
 				animation_priority = 3;
-				cooldown = 3;
-				print("ATTACKING")
+				cooldown = 4;
 	
 		else:
 			var speedX = abs(velocity.x)

@@ -2,6 +2,7 @@ class_name Character
 extends RigidBody2D
 
 var on_floor = false;
+var direction = 0;
 const walk_velocity = 100;
 const sprint_velocity = 150;
 const acceleration = 130;
@@ -17,6 +18,8 @@ var hp = 100;
 var hp_p = 100; #Variable to store the previous hp
 
 var cooldown = 0;
+var dagger_copy = 0;
+var attacking = false;
 
 func handle_animations(var velocity, var priority):
 	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR
@@ -25,9 +28,11 @@ func handle_animations(var velocity, var priority):
 		if sign(velocity.x) == 1:
 			$AnimatedSprite.flip_h = false;
 			$AnimatedSprite.offset.x = 20;
+			direction = 1;
 		else:
 			$AnimatedSprite.flip_h = true;
 			$AnimatedSprite.offset.x = -20;
+			direction = -1;
 		
 	if hp <= 0:
 		$AnimatedSprite.offset.y = -10;
@@ -53,21 +58,30 @@ func handle_animations(var velocity, var priority):
 		if abs(velocity.x) == 0:
 			$AnimatedSprite.play("ATTACK_STANDING");
 			animation_counter += step;
-			if (animation_counter >= 1):
+			if (animation_counter == step):
+				init_attack()
+			elif (animation_counter >= 1):
 				animation_priority = 0;
 				animation_counter = 0;
+				end_attack()
 		elif abs(velocity.x) != 0 and abs(velocity.x) <= walk_velocity:
 			$AnimatedSprite.play("ATTACK_MOVING");
 			animation_counter += step;
-			if (animation_counter >= 1):
+			if (animation_counter == step):
+				init_attack()
+			elif (animation_counter >= 1):
 				animation_priority = 0;
 				animation_counter = 0;
+				end_attack()
 		elif abs(velocity.x) > walk_velocity:
 			$AnimatedSprite.play("ATTACK_SPRINTING");
 			animation_counter += step;
-			if (animation_counter >= 1):
+			if (animation_counter == step):
+				init_attack()
+			elif (animation_counter >= 1):
 				animation_priority = 0;
 				animation_counter = 0;
+				end_attack()
 	#wait for the hurt animation to be finished
 	elif (animation_priority == 4):
 		animation_counter += step;
@@ -94,6 +108,18 @@ func handle_animations(var velocity, var priority):
 			
 	hp_p = hp;
 
+func init_attack():
+	if attacking == false:
+		attacking = true
+		dagger_copy = load('res://Player//Dagger.tscn').instance()
+		dagger_copy.transform[2].x = 45 * direction
+		add_child(dagger_copy)
+
+func end_attack():
+	if attacking == true:
+		attacking = false;
+		dagger_copy.queue_free()
+	
 func _integrate_forces(state):
 	step = state.get_step();
 	c_position = state.transform[2];
@@ -124,7 +150,7 @@ func _integrate_forces(state):
 		if(Input.is_mouse_button_pressed(1) and cooldown == 0):
 			#set the animation_priority to attack
 			animation_priority = 3;
-			cooldown = 2
+			cooldown = 1
 		
 		#basic movements
 		if(Input.is_action_pressed("ui_left")):
@@ -151,8 +177,3 @@ func _integrate_forces(state):
 	handle_animations(velocity, 0);
 	
 	state.linear_velocity = velocity;
-
-#func _on_Area2D_body_entered(body):
-#	if body is FlyingCharakter:
-#		print("HIT")
-#		hp -= 10
