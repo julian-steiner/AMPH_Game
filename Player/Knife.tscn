@@ -7,7 +7,7 @@ mass = 0.5
 gravity_scale = 3.0
 linear_velocity = Vector2( 20, 20 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="knife" type="Sprite" parent="."]
 position = Vector2( 0.0292929, -0.00336218 )
 rotation = 4.44186
 scale = Vector2( 2, 2 )
