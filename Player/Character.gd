@@ -126,6 +126,7 @@ func _integrate_forces(state):
 	var velocity = state.get_linear_velocity();
 	var key_pressed = false;
 	on_floor = false;
+	$HealthBar.value = hp;
 
 	cooldown = max(cooldown - step, 0);
 	
