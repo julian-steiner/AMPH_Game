@@ -142,7 +142,7 @@ position = Vector2( 0.25, 0 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "ATTACK_SPRINTING"
-frame = 7
+frame = 1
 playing = true
 offset = Vector2( 20, -29.247 )
 

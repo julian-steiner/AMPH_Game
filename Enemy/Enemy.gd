@@ -120,7 +120,7 @@ func _integrate_forces(state):
 				var speedX = abs(velocity.x)
 				var direction = sign(velocity.x)
 				velocity.x = max(speedX - (acceleration * 2) * step, 0) * direction;
-			if(positionDifference <= attackZone and cooldown == 0):
+			if(positionDifference <= attackZone and cooldown == 0 and animation_priority != 4):
 				animation_priority = 3;
 				cooldown = 4;
 	
