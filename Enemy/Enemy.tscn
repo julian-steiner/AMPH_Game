@@ -58,6 +58,16 @@ animations = [ {
 "name": "IDLE",
 "speed": 3.0
 }, {
+"frames": [ ExtResource( 26 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "ATTACK_STANDING",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "WALK",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 37 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 39 ), ExtResource( 36 ) ],
 "loop": false,
 "name": "DEATH",
@@ -68,20 +78,10 @@ animations = [ {
 "name": "SPRINT",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "WALK",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 28 ) ],
 "loop": false,
 "name": "HURT",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "ATTACK_STANDING",
-"speed": 4.0
 }, {
 "frames": [ ExtResource( 46 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 41 ) ],
 "loop": true,
@@ -115,7 +115,7 @@ position = Vector2( 0, -40 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "IDLE"
-frame = 3
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true

@@ -11,6 +11,10 @@ var hp = 100;
 var counter = 0;
 var step = 0;
 var priority = false;
+var attak = false;
+var attacking = false;
+var headnut_copy = 0;
+var direction = -1;
 
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
@@ -30,10 +34,14 @@ func _integrate_forces(state):
 	
 	if Input.is_action_just_pressed("ui_KP 4"):
 		velocity.x = min(velocity.x - xflight_acc*step, -xflight_max)
+		direction = -1
 #
 	if Input.is_action_just_pressed("ui_KP 6"):
 		velocity.x = max(velocity.x + xflight_acc*step, xflight_max)
+		direction = 1
 	
+	if Input.is_action_just_pressed("ui_KP enter"):
+		attak = true
 	velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(velocity)
 	_animation_handling(velocity)
@@ -47,19 +55,35 @@ func _animation_handling(velocity):
 			counter = 0
 	elif priority == true:
 		$AnimatedSprite.play("Hurt")
+		$HealthBar.value = hp
 		counter += step
 		if counter >= 0.5:
 			counter = 0
 			priority = false
+
+	elif attak == true:
+		init_attack()
+		$AnimatedSprite.play("Attak")
+		attacking = true;
+		counter += step
+		if counter >= 0.5:
+			print("attak")
+			end_attack()
+			attak = false
+			counter = 0
+	
 	else:
 		if velocity.x != 0:
 			if velocity.x > 0:
 				$AnimatedSprite.flip_h = false
+				direction = 1
 			else:
 				$AnimatedSprite.flip_h = true
+				direction = -1
 		
-		if Input.is_action_pressed("ui_KP enter"):
+		if Input.is_action_just_pressed("ui_KP enter"):
 			$AnimatedSprite.play("Attak")
+			attacking = true;
 			counter += step
 			if counter >= 0.5:
 				counter = 0
@@ -71,8 +95,14 @@ func _animation_handling(velocity):
 			else:
 				$AnimatedSprite.play("Idle")
 
-func _on_Area2D_body_entered(body):
-	if body is Character:
-		hp -= 10
-		print("Hurt")
-		priority = true
+func init_attack():
+	if attacking == false:
+		attacking = true
+		headnut_copy = load('res://Bat//Headnut.tscn').instance()
+		headnut_copy.transform[2].x = 45 * direction
+		add_child(headnut_copy)
+
+func end_attack():
+	if attacking == true:
+		attacking = false;
+		headnut_copy.queue_free()
