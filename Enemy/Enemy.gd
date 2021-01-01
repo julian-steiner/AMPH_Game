@@ -81,7 +81,7 @@ func init_attack():
 	if(attacking == false):
 		attacking = true;
 		sword = load("res://Enemy//Sword.tscn").instance()
-		sword.transform[2].x = 70 *direction + -1 * direction
+		sword.transform[2].x = 70 * direction + -1 * direction
 		add_child(sword)
 	
 func end_attack():
