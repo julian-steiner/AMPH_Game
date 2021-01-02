@@ -18,11 +18,12 @@ var direction = -1;
 
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
+	var key_pressed = false;
 	step = state.get_step()
-	var on_floor = false
+	var on_floor = false;
 	
 	for i in range(state.get_contact_count()):
-		var contact_normal = state.get_contact_local(i)
+		var contact_normal = state.get_contact_local_normal(i)
 		if contact_normal.dot(Vector2(0,-1)) > 0.5:
 			on_floor = true
 	
@@ -34,19 +35,27 @@ func _integrate_forces(state):
 	
 	if Input.is_action_just_pressed("ui_KP 4"):
 		velocity.x = min(velocity.x - xflight_acc*step, -xflight_max)
-		direction = -1
+		key_pressed = true
 #
 	if Input.is_action_just_pressed("ui_KP 6"):
 		velocity.x = max(velocity.x + xflight_acc*step, xflight_max)
-		direction = 1
+		key_pressed = true
 	
 	if Input.is_action_just_pressed("ui_KP enter"):
 		attak = true
+	
+	direction = sign(velocity.x)
+	
+	if on_floor and not key_pressed: 
+		var speed = abs(velocity.x)
+		speed = max(speed - xflight_acc * step, 0)
+		velocity.x = speed * direction
+	
 	velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(velocity)
-	_animation_handling(velocity)
+	_animation_handling(velocity, on_floor)
 
-func _animation_handling(velocity):
+func _animation_handling(velocity, on_floor):
 	if hp <= 0:
 		$AnimatedSprite.play("Death")
 		counter += step
@@ -89,11 +98,13 @@ func _animation_handling(velocity):
 				counter = 0
 		
 		else:
-			if velocity.y != 0:
+			if not on_floor:
 				$AnimatedSprite.play("Fly")
+				print("fly")
 
 			else:
 				$AnimatedSprite.play("Idle")
+				print("idle")
 
 func init_attack():
 	if attacking == false:
