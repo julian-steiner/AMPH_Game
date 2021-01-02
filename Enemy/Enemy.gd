@@ -42,8 +42,8 @@ func handle_animations(var velocity, var priority):
 		animation_priority = 5;
 		
 	if hp < hp_p:
+		animation_counter = 0;
 		$AnimatedSprite.play("HURT");
-		print("Hurt")
 		animation_priority = 4;
 				
 	elif (animation_priority == 3):
