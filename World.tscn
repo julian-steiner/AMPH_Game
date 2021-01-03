@@ -10,6 +10,9 @@
 [ext_resource path="res://UI.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Knife.tscn" type="PackedScene" id=9]
 
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+
 [node name="World" type="Node2D"]
 
 [node name="SWAMP_MAP" type="TileMap" parent="."]
@@ -24,6 +27,9 @@ tile_data = PoolIntArray( 262169, 12, 0, 262170, 12, 0, 327694, 12, 0, 327695, 1
 
 [node name="FlyingCharakter" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1178.89, 79.9265 )
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+contacts_reported = 3
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
 position = Vector2( 440.428, 470.746 )
