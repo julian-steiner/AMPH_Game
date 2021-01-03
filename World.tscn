@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/Swamp_Tiles.tres" type="TileSet" id=2]
@@ -25,7 +25,7 @@ tile_data = PoolIntArray( 262169, 12, 0, 262170, 12, 0, 327694, 12, 0, 327695, 1
 position = Vector2( 1178.89, 79.9265 )
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
-position = Vector2( 440.428, 470.746 )
+position = Vector2( 1248.01, 281.199 )
 
 [node name="Camera2D" type="Camera2D" parent="Character"]
 rotating = true
