@@ -100,11 +100,9 @@ func _animation_handling(velocity, on_floor):
 		else:
 			if not on_floor:
 				$AnimatedSprite.play("Fly")
-				print("fly")
 
 			else:
 				$AnimatedSprite.play("Idle")
-				print("idle")
 
 func init_attack():
 	if attacking == false:
