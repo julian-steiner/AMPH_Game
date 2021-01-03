@@ -75,6 +75,10 @@ func handle_animations(var velocity, var priority):
 		else:
 			$AnimatedSprite.play("IDLE");
 	
+	if attacking and animation_priority != 3 and animation_priority != 4:
+		print("Attack ended");
+		end_attack();
+	
 	hp_p = hp;
 	
 func init_attack():

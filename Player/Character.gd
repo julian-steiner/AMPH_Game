@@ -21,6 +21,7 @@ var cooldown = 0;
 var cooldown2 = 0;
 var dagger_copy = 0;
 var attacking = false;
+var thrown = false;
 
 func handle_animations(var velocity, var priority):
 	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR, 8 = THROW
@@ -87,9 +88,13 @@ func handle_animations(var velocity, var priority):
 	elif (animation_priority == 8):
 		$AnimatedSprite.play("THROW");
 		animation_counter += step;
-		if (animation_counter >= 0.4):
+		if (animation_counter >= 0.5):
 			animation_priority = 0;
 			animation_counter = 0;
+			thrown = false;
+			
+		elif (animation_counter >= 0.33 and not thrown):
+			thrown = true
 			throw_knife();
 	
 	#wait for the hurt animation to be finished
@@ -116,6 +121,9 @@ func handle_animations(var velocity, var priority):
 		else:
 			$AnimatedSprite.play("IDLE");
 			
+	if attacking and animation_priority != 3 and animation_priority != 4:
+		end_attack();
+			
 	hp_p = hp;
 
 func init_attack():
@@ -138,7 +146,6 @@ func throw_knife():
 	knife.linear_velocity.x = 300 * direction
 	knife.linear_velocity.y = -200
 	
-	print(knife.angular_velocity)
 	add_child(knife);
 	
 func _integrate_forces(state):
