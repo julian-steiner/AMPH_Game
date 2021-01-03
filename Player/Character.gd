@@ -141,8 +141,8 @@ func end_attack():
 		
 func throw_knife():
 	var knife = load('res://Player//Knife.tscn').instance();
-	knife.transform[2].y = -30
-	knife.transform[2].x = 40 * direction
+	knife.transform[2].y = -30 + c_position.y;
+	knife.transform[2].x = 40 * direction + c_position.x;
 	knife.angular_velocity = 5 * direction
 	knife.linear_velocity.x = 300 * direction
 	knife.linear_velocity.y = -200
@@ -150,7 +150,7 @@ func throw_knife():
 		knife.get_node("knife_sprite").flip_v = false;
 	else:
 		knife.get_node("knife_sprite").flip_v = true;
-	add_child(knife);
+	get_parent().add_child(knife);
 	knives -= 1;
 	
 func _integrate_forces(state):
@@ -176,15 +176,15 @@ func _integrate_forces(state):
 		animation_priority = 2;
 	on_floor_previous = on_floor;
 	
+	if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3 and knives > 0):
+			animation_priority = 8;
+			cooldown2 = 1;
+	
 	if(on_floor):
 		if(Input.is_mouse_button_pressed(1) and cooldown == 0 and animation_priority != 4 and animation_priority != 8):
 			#set the animation_priority to attack
 			animation_priority = 3;
 			cooldown = 1;
-			
-		if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3 and knives > 0):
-			animation_priority = 8;
-			cooldown2 = 1;
 		
 		#basic movements
 		if(Input.is_action_pressed("ui_left")):
