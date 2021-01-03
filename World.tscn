@@ -8,6 +8,7 @@
 [ext_resource path="res://Tilesets/Dark Castle.tres" type="TileSet" id=6]
 [ext_resource path="res://Tilesets/Dark Castle Big.tres" type="TileSet" id=7]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Knife.tscn" type="PackedScene" id=9]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -42,6 +43,9 @@ margin_left = -563.527
 margin_top = -265.89
 margin_right = -563.527
 margin_bottom = -265.89
+
+[node name="RigidBody2D" parent="Character" instance=ExtResource( 9 )]
+position = Vector2( 32.6192, -3.08655 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 58.6882, 455.765 )

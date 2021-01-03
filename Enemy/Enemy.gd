@@ -42,8 +42,8 @@ func handle_animations(var velocity, var priority):
 		animation_priority = 5;
 		
 	if hp < hp_p:
+		animation_counter = 0;
 		$AnimatedSprite.play("HURT");
-		print("Hurt")
 		animation_priority = 4;
 				
 	elif (animation_priority == 3):
@@ -74,6 +74,10 @@ func handle_animations(var velocity, var priority):
 			$AnimatedSprite.play("SPRINT");
 		else:
 			$AnimatedSprite.play("IDLE");
+	
+	if attacking and animation_priority != 3 and animation_priority != 4:
+		print("Attack ended");
+		end_attack();
 	
 	hp_p = hp;
 	
