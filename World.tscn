@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tilesets/Swamp_Tiles.tres" type="TileSet" id=2]
@@ -8,10 +8,6 @@
 [ext_resource path="res://Tilesets/Dark Castle.tres" type="TileSet" id=6]
 [ext_resource path="res://Tilesets/Dark Castle Big.tres" type="TileSet" id=7]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Player/Knife.tscn" type="PackedScene" id=9]
-
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
 
 [node name="World" type="Node2D"]
 
@@ -27,9 +23,6 @@ tile_data = PoolIntArray( 262169, 12, 0, 262170, 12, 0, 327694, 12, 0, 327695, 1
 
 [node name="FlyingCharakter" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1178.89, 79.9265 )
-physics_material_override = SubResource( 1 )
-gravity_scale = 3.0
-contacts_reported = 3
 
 [node name="Character" parent="." instance=ExtResource( 1 )]
 position = Vector2( 440.428, 470.746 )
@@ -43,9 +36,6 @@ margin_left = -563.527
 margin_top = -265.89
 margin_right = -563.527
 margin_bottom = -265.89
-
-[node name="RigidBody2D" parent="Character" instance=ExtResource( 9 )]
-position = Vector2( 32.6192, -3.08655 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 58.6882, 455.765 )

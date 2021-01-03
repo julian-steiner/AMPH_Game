@@ -22,6 +22,7 @@ var cooldown2 = 0;
 var dagger_copy = 0;
 var attacking = false;
 var thrown = false;
+var knives = 1;
 
 func handle_animations(var velocity, var priority):
 	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR, 8 = THROW
@@ -145,8 +146,12 @@ func throw_knife():
 	knife.angular_velocity = 5 * direction
 	knife.linear_velocity.x = 300 * direction
 	knife.linear_velocity.y = -200
-	
+	if direction == 1:
+		knife.get_node("knife_sprite").flip_v = false;
+	else:
+		knife.get_node("knife_sprite").flip_v = true;
 	add_child(knife);
+	knives -= 1;
 	
 func _integrate_forces(state):
 	step = state.get_step();
@@ -177,7 +182,7 @@ func _integrate_forces(state):
 			animation_priority = 3;
 			cooldown = 1;
 			
-		if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3):
+		if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3 and knives > 0):
 			animation_priority = 8;
 			cooldown2 = 1;
 		

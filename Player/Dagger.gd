@@ -1,3 +1,4 @@
+class_name Dagger
 extends Area2D
 
 
