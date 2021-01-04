@@ -143,7 +143,7 @@ func throw_knife():
 	var knife = load('res://Player//Knife.tscn').instance();
 	knife.transform[2].y = -30 + c_position.y;
 	knife.transform[2].x = 40 * direction + c_position.x;
-	knife.angular_velocity = 5 * direction
+	knife.angular_velocity = 10 * direction
 	knife.linear_velocity.x = 300 * direction
 	knife.linear_velocity.y = -200
 	if direction == 1:

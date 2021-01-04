@@ -6,6 +6,8 @@ var on_floor = false;
 func _integrate_forces(state):
 	if on_floor:
 		state.linear_velocity = Vector2(0, 0)
+		state.angular_velocity = 0
+		self.set_gravity_scale(1.0);
 
 func _on_knife_collision_body_entered(body):
 	print(on_floor);
