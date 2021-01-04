@@ -16,6 +16,7 @@ var c_position = 0;
 	
 var hp = 100;
 var hp_p = 100; #Variable to store the previous hp
+var dying = false;
 
 var cooldown = 0;
 var cooldown2 = 0;
@@ -37,12 +38,13 @@ func handle_animations(var velocity, var priority):
 			$AnimatedSprite.offset.x = -20;
 			direction = -1;
 		
-	if hp <= 0:
+	if hp <= 0 and not dying:
 		$AnimatedSprite.offset.y = -10;
 		$AnimatedSprite.play("DEATH");
+		dying = true;
 		animation_priority = 5;
 		
-	if hp < hp_p:
+	if hp < hp_p and not dying:
 		$AnimatedSprite.play("HURT");
 		animation_priority = 4;
 				
