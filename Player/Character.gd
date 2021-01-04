@@ -16,6 +16,7 @@ var c_position = 0;
 	
 var hp = 100;
 var hp_p = 100; #Variable to store the previous hp
+var dying = false;
 
 var cooldown = 0;
 var cooldown2 = 0;
@@ -37,12 +38,13 @@ func handle_animations(var velocity, var priority):
 			$AnimatedSprite.offset.x = -20;
 			direction = -1;
 		
-	if hp <= 0:
+	if hp <= 0 and not dying:
 		$AnimatedSprite.offset.y = -10;
 		$AnimatedSprite.play("DEATH");
+		dying = true;
 		animation_priority = 5;
 		
-	if hp < hp_p:
+	if hp < hp_p and not dying:
 		$AnimatedSprite.play("HURT");
 		animation_priority = 4;
 				
@@ -143,7 +145,7 @@ func throw_knife():
 	var knife = load('res://Player//Knife.tscn').instance();
 	knife.transform[2].y = -30 + c_position.y;
 	knife.transform[2].x = 40 * direction + c_position.x;
-	knife.angular_velocity = 5 * direction
+	knife.angular_velocity = 10 * direction
 	knife.linear_velocity.x = 300 * direction
 	knife.linear_velocity.y = -200
 	if direction == 1:
