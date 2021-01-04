@@ -4,8 +4,8 @@ extends RigidBody2D
 var on_floor = false;
 var direction = 0;
 const walk_velocity = 100;
-const sprint_velocity = 150;
-const acceleration = 130;
+const sprint_velocity = 200;
+const acceleration = 250;
 const jump_speed = 200;
 
 var animation_priority = 0;
