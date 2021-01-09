@@ -58,30 +58,30 @@ animations = [ {
 "name": "IDLE",
 "speed": 3.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "HURT",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 37 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 39 ), ExtResource( 36 ) ],
-"loop": false,
-"name": "DEATH",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "WALK",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "ATTACK_STANDING",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "HURT",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "SPRINT",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "ATTACK_STANDING",
-"speed": 4.0
+"frames": [ ExtResource( 37 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 39 ), ExtResource( 36 ) ],
+"loop": false,
+"name": "DEATH",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 46 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 41 ) ],
 "loop": true,
@@ -120,7 +120,6 @@ position = Vector2( 0, -40 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "IDLE"
-frame = 4
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -128,7 +127,7 @@ __meta__ = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 20.25, -20.25 )
-polygon = PoolVector2Array( 10.5, -14, -47.5, -12.75, -20, 20 )
+polygon = PoolVector2Array( 10, -15, -50, -15, -20, 20 )
 __meta__ = {
 "_edit_group_": true
 }
