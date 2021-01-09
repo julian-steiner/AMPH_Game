@@ -14,7 +14,8 @@ func _on_knife_collision_body_entered(body):
 	print("Collision")
 	if body is Enemy and not on_floor:
 		body.hp -= 100;
-	if not body is Character and not body == self:
+		self.linear_velocity = Vector2(0, 0)
+	if not body is Character and not body == self and not body is Enemy:
 		on_floor = true;
 
 func _on_pickup_collision_body_entered(body):
