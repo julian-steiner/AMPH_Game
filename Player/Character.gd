@@ -26,7 +26,7 @@ var thrown = false;
 var knives = 1;
 
 func handle_animations(var velocity, var priority):
-	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR, 8 = THROW
+	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = HURT, 5 = DEATH, 6 = DEATH, 7 = IN_AIR, 8 = THROW
 	#CHANGE THE ORIENTATION OF THE CHARACTER ACCORDING TO THE DIRECTION IT'S MOVING
 	if sign(velocity.x) != 0:
 		if sign(velocity.x) == 1:
@@ -156,6 +156,7 @@ func throw_knife():
 	knives -= 1;
 	
 func _integrate_forces(state):
+	print(animation_priority)
 	step = state.get_step();
 	c_position = state.transform[2];
 	var velocity = state.get_linear_velocity();
@@ -173,7 +174,7 @@ func _integrate_forces(state):
 			on_floor = true
 	
 	#check if the player just hit the ground
-	if(on_floor == true and on_floor_previous == false):
+	if(on_floor == true and on_floor_previous == false and not dying):
 		#set the animationPriority to jump_end
 		animation_priority = 2;
 	on_floor_previous = on_floor;
