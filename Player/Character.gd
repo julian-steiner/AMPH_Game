@@ -2,7 +2,7 @@ class_name Character
 extends RigidBody2D
 
 var on_floor = false;
-var direction = 0;
+var direction = 1;
 const walk_velocity = 100;
 const sprint_velocity = 200;
 const acceleration = 250;
@@ -13,7 +13,7 @@ var on_floor_previous = false;
 var animation_counter = 0;
 var step = 0;
 var c_position = 0;
-	
+
 var hp = 100;
 var hp_p = 100; #Variable to store the previous hp
 var dying = false;
