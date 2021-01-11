@@ -29,10 +29,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bat/FlyingCharakter.gd"
 }, {
-"base": "Area2D",
+"base": "StaticBody2D",
 "class": "Tuere",
 "language": "GDScript",
-"path": "res://Türe.gd"
+"path": "res://Türen/Türe.gd"
 }, {
 "base": "RigidBody2D",
 "class": "knife_flying",
