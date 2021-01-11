@@ -213,4 +213,6 @@ func _integrate_forces(state):
 	
 	handle_animations(velocity, 0);
 	
+	if dying:
+		velocity = Vector2(0, 0);
 	state.linear_velocity = velocity;
