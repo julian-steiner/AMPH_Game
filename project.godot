@@ -29,10 +29,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bat/FlyingCharakter.gd"
 }, {
-"base": "StaticBody2D",
-"class": "Spikes",
+"base": "Area2D",
+"class": "Tuere",
 "language": "GDScript",
-"path": "res://Spikes/WoodenSpikes/WoodenSpikes.gd"
+"path": "res://Türe.gd"
 }, {
 "base": "RigidBody2D",
 "class": "knife_flying",
@@ -54,7 +54,7 @@ _global_script_class_icons={
 "Dagger": "",
 "Enemy": "",
 "FlyingCharakter": "",
-"Spikes": "",
+"Tuere": "",
 "knife_flying": "",
 "main": "",
 "sword": ""
