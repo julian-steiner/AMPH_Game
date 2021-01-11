@@ -4,7 +4,6 @@ extends RigidBody2D
 var on_floor = false;
 
 func _integrate_forces(state):
-	print(state.angular_velocity)
 	if on_floor:
 		state.linear_velocity = Vector2(0, 0)
 		state.angular_velocity = 0

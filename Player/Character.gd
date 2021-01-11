@@ -156,7 +156,6 @@ func throw_knife():
 	knives -= 1;
 	
 func _integrate_forces(state):
-	print(animation_priority)
 	step = state.get_step();
 	c_position = state.transform[2];
 	var velocity = state.get_linear_velocity();

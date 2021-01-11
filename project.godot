@@ -29,14 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bat/FlyingCharakter.gd"
 }, {
-<<<<<<< HEAD
-=======
 "base": "Area2D",
 "class": "Tuere",
 "language": "GDScript",
 "path": "res://Türe.gd"
 }, {
->>>>>>> develop
 "base": "RigidBody2D",
 "class": "knife_flying",
 "language": "GDScript",
@@ -57,10 +54,7 @@ _global_script_class_icons={
 "Dagger": "",
 "Enemy": "",
 "FlyingCharakter": "",
-<<<<<<< HEAD
-=======
 "Tuere": "",
->>>>>>> develop
 "knife_flying": "",
 "main": "",
 "sword": ""
