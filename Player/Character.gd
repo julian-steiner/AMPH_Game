@@ -5,7 +5,7 @@ var on_floor = false;
 var direction = 1;
 const walk_velocity = 100;
 const sprint_velocity = 200;
-const acceleration = 250;
+const acceleration = 400;
 const jump_speed = 200;
 
 var animation_priority = 0;
