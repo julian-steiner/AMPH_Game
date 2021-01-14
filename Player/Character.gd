@@ -188,7 +188,7 @@ func _integrate_forces(state):
 				animation_priority = 8;
 				cooldown2 = 1;
 		
-		if(on_floor):
+		if(on_floor and not dying):
 			if(Input.is_mouse_button_pressed(1) and cooldown == 0 and animation_priority != 4 and animation_priority != 8):
 				#set the animation_priority to attack
 				animation_priority = 3;
