@@ -19,6 +19,7 @@ var playerInRange = false;
 var playerCopy = 0;
 var sword = 0;
 var attacking = false;
+var dying = false;
 
 var hp = 40;
 var hp_p = 40; #Variable to store the previous hp
@@ -26,7 +27,7 @@ var hp_p = 40; #Variable to store the previous hp
 var cooldown = 0;
 
 func handle_animations(var velocity, var priority):
-	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = HURT, 6 = DEATH, 7 = IN_AIR
+	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = ATTACK_MOVING, 5 = DEATH, 6 = x, 7 = IN_AIR
 	#CHANGE THE ORIENTATION OF THE CHARACTER ACCORDING TO THE DIRECTION IT'S MOVING
 	if sign(velocity.x) != 0:
 		if direction == 1:
@@ -39,6 +40,7 @@ func handle_animations(var velocity, var priority):
 	if hp <= 0:
 		$AnimatedSprite.offset.y = 15;
 		$AnimatedSprite.play("DEATH");
+		var dying = true;
 		animation_priority = 5;
 		
 	if hp < hp_p:
@@ -109,7 +111,7 @@ func _integrate_forces(state):
 			on_floor = true
 	
 	#controls
-	if(on_floor):
+	if(on_floor and not dying):
 		if(playerInRange):
 			#calculate the postiiondifference
 			var positionDifference = pow(pow(abs(playerCopy.c_position.x - c_position.x), 2) + pow(abs(playerCopy.c_position.y - c_position.y), 2), 0.5);
@@ -136,6 +138,9 @@ func _integrate_forces(state):
 	handle_animations(velocity, 0);
 	
 	cooldown = max(0, cooldown - step)
+	
+	if dying:
+		velocity = Vector2(0, 0)
 	
 	state.linear_velocity = velocity;
 

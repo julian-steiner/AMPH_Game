@@ -3,7 +3,37 @@ extends StaticBody2D
 
 const locations = {"Door1": Vector2(300, 0)};
 
+var body_current = 0;
+var teleporting = false;
+var timer = 0;
+
 func _on_Area2D_body_entered(body):
 	if body is Character or body is FlyingCharakter:
-		body.teleport(locations.get(self.name))
+		body_current = body
+		init_teleport()
+		
+func _on_Area2D_body_exited(body):
+	if body is Character or body is FlyingCharakter:
+		body_current = 0
+		cancel_teleport()
 
+func init_teleport():
+	$AnimatedSprite.play("DoorOpen")
+	teleporting = true
+	
+func cancel_teleport():
+	$AnimatedSprite.play("DoorClosed")
+	teleporting = false
+	timer = 0
+	
+func execute_teleport():
+	body_current.teleport(locations.get(self.name))
+	$AnimatedSprite.play("DoorClosed")
+	teleporting = false
+	timer = 0
+
+func _physics_process(delta):
+	if teleporting:
+		timer += delta
+		if timer >= 0.5:
+			execute_teleport();
