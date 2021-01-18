@@ -184,7 +184,7 @@ func _integrate_forces(state):
 			animation_priority = 2;
 		on_floor_previous = on_floor;
 		
-		if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3 and knives > 0):
+		if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3 and knives > 0 and not dying):
 				animation_priority = 8;
 				cooldown2 = 1;
 		
