@@ -1,7 +1,7 @@
 class_name Tuere
 extends StaticBody2D
 
-const locations = {"Door1": Vector2(300, 0)};
+const locations = {"Door1": Vector2(300, 0), "Tuere": Vector2(-1184.284, 1471.843)};
 
 var body_current = 0;
 var teleporting = false;
