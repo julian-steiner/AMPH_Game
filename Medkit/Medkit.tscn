@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Medkit/MedKit.gd" type="Script" id=1]
+[ext_resource path="res://assets/MedKit/medkit.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="Medkit" type="Node2D"]
+
+[node name="MedKit" type="StaticBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="MedKit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MedKit/Area2D"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="MedKit"]
+texture = ExtResource( 2 )
+[connection signal="body_entered" from="MedKit/Area2D" to="MedKit" method="_on_Area2D_body_entered"]
