@@ -299,19 +299,19 @@ position = Vector2( 3423.88, 2304.07 )
 [node name="All_MedKit" type="Node2D" parent="."]
 
 [node name="Medkit" parent="All_MedKit" instance=ExtResource( 10 )]
-position = Vector2( -1112.07, 340.964 )
+position = Vector2( -1113.27, 353.267 )
 
 [node name="Medkit2" parent="All_MedKit" instance=ExtResource( 10 )]
-position = Vector2( 2592.33, 729.012 )
+position = Vector2( 2593.03, 737.851 )
 
 [node name="Medkit3" parent="All_MedKit" instance=ExtResource( 10 )]
-position = Vector2( 3490.89, 2327.81 )
+position = Vector2( 3490.89, 2337.92 )
 
 [node name="Medkit4" parent="All_MedKit" instance=ExtResource( 10 )]
-position = Vector2( 718.774, 1682.2 )
+position = Vector2( 718.774, 1698.7 )
 
 [node name="Medkit5" parent="All_MedKit" instance=ExtResource( 10 )]
-position = Vector2( -876.581, -744.905 )
+position = Vector2( -878.068, -733.905 )
 
 [node name="Medkit6" parent="All_MedKit" instance=ExtResource( 10 )]
-position = Vector2( 2492, 792.362 )
+position = Vector2( 2491.65, 801.554 )
