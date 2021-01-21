@@ -4,7 +4,6 @@
 [ext_resource path="res://Player/Knife.gd" type="Script" id=2]
 
 [sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
 
 [node name="Knife" type="RigidBody2D"]
 mass = 0.5
