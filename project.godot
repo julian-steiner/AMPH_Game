@@ -32,7 +32,12 @@ _global_script_classes=[ {
 "base": "StaticBody2D",
 "class": "Tuere",
 "language": "GDScript",
-"path": "res://Türen/Türe.gd"
+"path": "res://Türen/Door/Türe.gd"
+}, {
+"base": "StaticBody2D",
+"class": "abschlusstuere",
+"language": "GDScript",
+"path": "res://Türen/Abschlusstüre/Abschlusstüre.gd"
 }, {
 "base": "RigidBody2D",
 "class": "knife_flying",
@@ -55,6 +60,7 @@ _global_script_class_icons={
 "Enemy": "",
 "FlyingCharakter": "",
 "Tuere": "",
+"abschlusstuere": "",
 "knife_flying": "",
 "main": "",
 "sword": ""
