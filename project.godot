@@ -29,12 +29,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bat/FlyingCharakter.gd"
 }, {
-"base": "Reference",
+"base": "StaticBody2D",
 "class": "MedKit",
 "language": "GDScript",
 "path": "res://Medkit/MedKit.gd"
 }, {
-"base": "StaticBody2D",
+"base": "Reference",
 "class": "Tuere",
 "language": "GDScript",
 "path": "res://Türen/Door/Türe.gd"
