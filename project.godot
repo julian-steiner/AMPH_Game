@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bat/FlyingCharakter.gd"
 }, {
+"base": "Reference",
+"class": "MedKit",
+"language": "GDScript",
+"path": "res://Medkit/MedKit.gd"
+}, {
 "base": "StaticBody2D",
 "class": "Tuere",
 "language": "GDScript",
@@ -59,6 +64,7 @@ _global_script_class_icons={
 "Dagger": "",
 "Enemy": "",
 "FlyingCharakter": "",
+"MedKit": "",
 "Tuere": "",
 "abschlusstuere": "",
 "knife_flying": "",
