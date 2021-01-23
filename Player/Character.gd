@@ -147,8 +147,9 @@ func throw_knife():
 	knife.transform[2].y = -30 + c_position.y;
 	knife.transform[2].x = 40 * direction + c_position.x;
 	knife.angular_velocity = 10 * direction
-	knife.linear_velocity.y = -200
-	knife.velocity = Vector2(300 * direction, -200)
+	knife.linear_velocity.y = -150
+	knife.velocity = Vector2(300 * direction, 0)
+	print(get_global_mouse_position() - c_position)
 	if direction == 1:
 		knife.get_node("knife_sprite").flip_v = false;
 	else:
