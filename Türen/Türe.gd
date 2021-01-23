@@ -1,8 +1,8 @@
 class_name Tuere
 extends StaticBody2D
 
-const locations = {"Door1": Vector2(-928.004, 1791.935), "Tuere": Vector2(-1190.284, 1471.843), "Tuere2": Vector2(-1369.94, 319.83), "Tuere3": Vector2(-1689.82, -256.035), "Tuere4": Vector2(117.753, 535.582), "Tuere5": Vector2(117.753, 535.582)};
-#{Door1 zu Tuere3, Tuere zu Tuere2, Tuere2 zu Tuere, Tuere3 zu Door1, Tuere4 & Tuere5 zu start,}
+const locations = {"Door1": Vector2(-928.004, 1791.935), "Tuere": Vector2(-1190.284, 1471.843), "Tuere2": Vector2(-1369.94, 319.83), "Tuere3": Vector2(-1689.82, -256.035), "Tuere4": Vector2(117.753, 535.582), "Tuere5": Vector2(117.753, 535.582), "Tuere6": Vector2(117.753, 535.582)};
+#{Door1 zu Tuere3, Tuere zu Tuere2, Tuere2 zu Tuere, Tuere3 zu Door1, Tuere4 & Tuere5 & Tuere6 zu start}
 
 var body_current = 0;
 var teleporting = false;
