@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Spikes/WoodenSpikes/WoodenSpikes.gd" type="Script" id=1]
-[ext_resource path="res://assets/Spikes/SpikeblockWood.png" type="Texture" id=2]
+[ext_resource path="res://Trap/Spikes/WoodenSpikes/WoodenSpikes.gd" type="Script" id=1]
+[ext_resource path="res://assets/Spikes/SpikeblockSteel.png" type="Texture" id=2]
+
+
 
 [node name="Spike" type="StaticBody2D"]
 position = Vector2( 0.21022, -0.210224 )
@@ -15,10 +17,10 @@ flip_v = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( -1.47157, -7.62939e-06 )
-polygon = PoolVector2Array( -30.329, -1.99901, -29.6983, 16.7109, 32.1076, 17.1314, 32.3178, -2.62969, 22.227, -16.7147, 15.8725, -3.49687, 7.51134, -16.5045, 0.784172, -2.83991, -5.943, -16.084, -12.6702, -3.05014, -21.7098, -16.2943 )
+polygon = PoolVector2Array( -32.4887, -0.789768, -32.4887, 18.7102, 33.0113, 18.2102, 32.3178, -2.62969, 25.2614, -18.7898, 15.8725, -3.49687, 9.01135, -19.0398, 0.784172, -2.83991, -6.73865, -19.0398, -12.6702, -3.05014, -22.4886, -19.0398 )
 
 [node name="Damage_Area" type="Area2D" parent="."]
 
 [node name="Damage_Collision" type="CollisionPolygon2D" parent="Damage_Area"]
-polygon = PoolVector2Array( -32.221, -1.99902, -23.1814, -18.6067, 23.0679, -18.1863, 30.8462, -1.57857 )
+polygon = PoolVector2Array( -34.7102, -1.78978, -25.2102, -20.5398, 24.2898, -20.0398, 32.2898, -2.03978 )
 [connection signal="body_entered" from="Damage_Area" to="." method="_on_Damage_Area_body_entered"]

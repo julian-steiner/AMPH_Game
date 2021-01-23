@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://Medkit/MedKit.gd"
 }, {
 "base": "StaticBody2D",
+"class": "SpinningTrap",
+"language": "GDScript",
+"path": "res://SpinningTrap.gd"
+}, {
+"base": "StaticBody2D",
 "class": "Tuere",
 "language": "GDScript",
 "path": "res://Türen/Türe.gd"
@@ -60,6 +65,7 @@ _global_script_class_icons={
 "Enemy": "",
 "FlyingCharakter": "",
 "MedKit": "",
+"SpinningTrap": "",
 "Tuere": "",
 "knife_flying": "",
 "main": "",

@@ -3,8 +3,10 @@
 [ext_resource path="res://Tilesets/Green_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Spikes/WoodenSpikes/WoodenSpikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Trap/Spikes/WoodenSpikes/WoodenSpikes.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tilesets/Swamp_Tiles.tres" type="TileSet" id=5]
+
+
 
 [node name="World" type="Node2D"]
 
