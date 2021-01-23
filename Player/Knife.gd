@@ -17,7 +17,6 @@ func calculate_friction():
 
 func _integrate_forces(state):
 	angle = to_degrees(state.get_transform().get_rotation());
-	print(calculate_friction())
 	if on_floor:
 		state.linear_velocity = Vector2(0, 0)
 		state.angular_velocity = 0
@@ -30,7 +29,7 @@ func _integrate_forces(state):
 func _on_knife_collision_body_entered(body): 
 	if body is Enemy and not on_floor:
 		body.hp -= 100;
-		self.linear_velocity = Vector2(0, 0)
+		self.velocity = Vector2(0, 0);
 		self.angular_velocity = 0
 	if not body is Character and not body == self and not body is Enemy:
 		on_floor = true;

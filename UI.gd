@@ -15,7 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-var level_number = 1
+var level_number = 2
 
 func _on_Start_Button_pressed():
 	get_tree().change_scene("res://Levels/Level_" + str(level_number) + ".tscn")

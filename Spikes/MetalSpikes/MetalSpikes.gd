@@ -19,3 +19,4 @@ func _ready():
 func _on_Damage_Area_body_entered(body):
 	if body is Character:
 		body.hp -= 100
+	
