@@ -9,6 +9,7 @@ var teleporting = false;
 var timer = 0;
 
 func _on_Area2D_body_entered(body):
+	z_index = -1;
 	if body is Character or body is FlyingCharakter:
 		body_current = body
 		init_teleport()
@@ -28,10 +29,15 @@ func cancel_teleport():
 	timer = 0
 	
 func execute_teleport():
-	body_current.teleport(locations.get(self.name))
-	$AnimatedSprite.play("DoorClosed")
-	teleporting = false
-	timer = 0
+	if self.name == "endDoor":
+		get_tree().change_scene("res://Levels//Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
+	elif self.name == "falseDoor":
+		cancel_teleport()
+	else:
+		body_current.teleport(locations.get(self.name))
+		$AnimatedSprite.play("DoorClosed")
+		teleporting = false
+		timer = 0
 
 func _physics_process(delta):
 	if teleporting:
