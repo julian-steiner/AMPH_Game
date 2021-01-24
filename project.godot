@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Trap/SpinningTrap.gd"
 }, {
-"base": "Reference",
+"base": "StaticBody2D",
 "class": "Tuere",
 "language": "GDScript",
 "path": "res://Türen/Türe.gd"
