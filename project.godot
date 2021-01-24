@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "StaticBody2D",
 "class": "SpinningTrap",
 "language": "GDScript",
-"path": "res://SpinningTrap.gd"
+"path": "res://Trap/SpinningTrap.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Tuere",
