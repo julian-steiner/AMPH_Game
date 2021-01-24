@@ -39,7 +39,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Trap/SpinningTrap.gd"
 }, {
-"base": "StaticBody2D",
+"base": "Reference",
 "class": "Tuere",
 "language": "GDScript",
 "path": "res://Türen/Türe.gd"
@@ -82,7 +82,6 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
-window/size/resizable=false
 
 [input]
 
