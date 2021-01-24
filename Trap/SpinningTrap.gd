@@ -1,7 +1,7 @@
 class_name SpinningTrap
 extends StaticBody2D
 
-const direktion = {"SpinningTrap": [false], "SpinningTrap2": [true]};
+const Traps = {"SpinningTrap": [false, [[0, 100], [0, 0]]], "SpinningTrap2": [true, [[0, 0], [0, 100]]]};
 
 var give_damage = false;
 var counter = 0;
@@ -11,7 +11,7 @@ var rotate_direction = 0;
 
 func _physics_process(delta):
 	#Direktionen definieren
-	var direction = direktion.get(self.name)[0];
+	var direction = Traps.get(self.name)[0];
 	if direction:
 		rotate_direction = -1;
 	else:
@@ -21,6 +21,8 @@ func _physics_process(delta):
 	step = delta
 	$Sprite.flip_h = direction
 	$Sprite.rotate(6*delta*rotate_direction)
+	for i in range(Traps.get(self.name)[1][0][0], Traps.get(self.name)[1][0][0]):
+		pass
 	damaging()
 
 func _on_Area2D_body_entered(body):
