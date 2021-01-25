@@ -75,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Amph Game"
-run/main_scene="res://World.tscn"
+run/main_scene="res://UserInterface/UI.tscn"
 config/icon="res://icon.png"
 
 [input]
