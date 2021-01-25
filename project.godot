@@ -78,6 +78,11 @@ config/name="Amph Game"
 run/main_scene="res://UserInterface/UI.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
 [input]
 
 ui_left={

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tilesets/Swamp_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://Trap/Spikes/WoodenSpikes/WoodenSpikes.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Levels/Level_1.gd" type="Script" id=8]
 [ext_resource path="res://Trap/Spikes/MetalSpikes/MetalSpikes.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Türen/Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/background/tilesetOpenGameBackground.png" type="Texture" id=11]
+[ext_resource path="res://assets/tilemaps/DarkCastleTiles/DarkCastle_1_16x16.png" type="Texture" id=12]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 8 )
@@ -115,7 +117,7 @@ position = Vector2( 8662.97, 253.306 )
 [node name="Character" type="Node2D" parent="."]
 
 [node name="Character" parent="Character" instance=ExtResource( 5 )]
-position = Vector2( 131.653, 906.344 )
+position = Vector2( 9022.93, 70.4968 )
 
 [node name="Camera2D" type="Camera2D" parent="Character/Character"]
 current = true
@@ -124,7 +126,155 @@ limit_left = 0
 limit_bottom = 1080
 limit_smoothed = true
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Character/Character"]
+
+[node name="Sprite" type="Sprite" parent="Character/Character/ParallaxBackground"]
+position = Vector2( 9727.45, -96.64 )
+scale = Vector2( 7.27489, 4.94613 )
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 320, 260 )
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="Level_1_end_door" parent="Node2D" instance=ExtResource( 10 )]
-position = Vector2( 12448.9, 960.713 )
+position = Vector2( 12448, 960.019 )
+
+[node name="Decoration" type="Node2D" parent="."]
+
+[node name="Castle" type="Node2D" parent="Decoration"]
+
+[node name="DarkCastle_1_16x16" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 9504, 288 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x17" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 9504, 224 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x18" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 9504, 160 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x19" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 9760, 160 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x22" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10080, 160 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x25" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10400, 160 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x28" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10720, 160 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x29" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10720, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x30" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10720, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x31" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10784, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x32" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10848, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x33" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10912, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x34" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10976, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x35" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11040, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x36" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11104, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x37" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11168, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x38" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11232, 288 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x39" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11232, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x40" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11168, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x41" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11104, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x42" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 11040, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x43" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10976, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x44" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10912, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x45" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10848, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x46" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10784, 224 )
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x26" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10400, 224 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x27" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10400, 288 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x23" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10080, 224 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x24" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 10080, 288 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x20" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 9760, 224 )
+z_index = -1
+texture = ExtResource( 12 )
+
+[node name="DarkCastle_1_16x21" type="Sprite" parent="Decoration/Castle"]
+position = Vector2( 9760, 288 )
+z_index = -1
+texture = ExtResource( 12 )
