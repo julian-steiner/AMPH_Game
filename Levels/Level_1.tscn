@@ -114,31 +114,6 @@ position = Vector2( 8360.93, 321.265 )
 [node name="Enemy15" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 8662.97, 253.306 )
 
-[node name="Character" type="Node2D" parent="."]
-
-[node name="Character" parent="Character" instance=ExtResource( 5 )]
-position = Vector2( 9022.93, 70.4968 )
-
-[node name="Camera2D" type="Camera2D" parent="Character/Character"]
-current = true
-zoom = Vector2( 0.53, 0.55 )
-limit_left = 0
-limit_bottom = 1080
-limit_smoothed = true
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="Character/Character"]
-
-[node name="Sprite" type="Sprite" parent="Character/Character/ParallaxBackground"]
-position = Vector2( 9727.45, -96.64 )
-scale = Vector2( 7.27489, 4.94613 )
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 320, 260 )
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Level_1_end_door" parent="Node2D" instance=ExtResource( 10 )]
-position = Vector2( 12448, 960.019 )
-
 [node name="Decoration" type="Node2D" parent="."]
 
 [node name="Castle" type="Node2D" parent="Decoration"]
@@ -278,3 +253,28 @@ texture = ExtResource( 12 )
 position = Vector2( 9760, 288 )
 z_index = -1
 texture = ExtResource( 12 )
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="Character" parent="Character" instance=ExtResource( 5 )]
+position = Vector2( 9022.93, 70.4968 )
+
+[node name="Camera2D" type="Camera2D" parent="Character/Character"]
+current = true
+zoom = Vector2( 0.53, 0.55 )
+limit_left = 0
+limit_bottom = 1080
+limit_smoothed = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Character/Character"]
+
+[node name="Sprite" type="Sprite" parent="Character/Character/ParallaxBackground"]
+position = Vector2( 9727.45, -96.64 )
+scale = Vector2( 7.27489, 4.94613 )
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 320, 260 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Level_1_end_door" parent="Node2D" instance=ExtResource( 10 )]
+position = Vector2( 12448, 960.019 )
