@@ -7,11 +7,12 @@
 [ext_resource path="res://Player/Character.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tilesets/Green_Tiles.tres" type="TileSet" id=6]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Levels/Level_1.gd" type="Script" id=8]
+[ext_resource path="res://Levels/Charakter_Levels/Level_1.gd" type="Script" id=8]
 [ext_resource path="res://Trap/Spikes/MetalSpikes/MetalSpikes.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Türen/Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/background/tilesetOpenGameBackground.png" type="Texture" id=11]
 [ext_resource path="res://assets/tilemaps/DarkCastleTiles/DarkCastle_1_16x16.png" type="Texture" id=12]
+
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 8 )
