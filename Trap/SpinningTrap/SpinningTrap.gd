@@ -1,7 +1,7 @@
 class_name SpinningTrap
 extends StaticBody2D
 
-const Traps = {"SpinningTrap": [false, [-3*64, 0]], "SpinningTrap2": [true, [3*64, 0]], "SpinningTrap3": [true, [6*64, 0]], "SpinningTrap4": [true, [-6*64, 0]]};
+const Traps = {"SpinningTrap": [false, [-3*64, 0]], "SpinningTrap2": [true, [3*64, 0]], "SpinningTrap3": [false, [6*64, 0]], "SpinningTrap4": [true, [-6*64, 0]], "SpinningTrap5": [false, [0, -3*64]], "SpinningTrap6": [true, [0, -3*64]], "SpinningTrap7": [false, [-3*64, 0]], "SpinningTrap8": [true, [3*64, 0]], "SpinningTrap9": [true, [0, 3*64]], "SpinningTrap10": [false, [0, 3*64]], "SpinningTrap11": [false, [6*64, 0]], "SpinningTrap12": [true, [-6*64, 0]]};
 
 var give_damage = false;
 var counter = 0;
@@ -17,6 +17,8 @@ var y_pos_max = 0;
 var y_first_round = true;
 var x_first_round = true;
 var x_y_diffrenz = 1;
+var speed_x = 1;
+var speed_y = 1;
 
 func _physics_process(delta):
 	#Direktionen definieren
@@ -29,10 +31,22 @@ func _physics_process(delta):
 	if make_variabels:
 		x_pos_max = Traps.get(self.name)[1][0]
 		y_pos_max = Traps.get(self.name)[1][1]
+		speed_x = abs(x_pos_max/(64))
+		speed_y = abs(y_pos_max/(64))
+
+		if y_pos_max != 0:
+			if x_pos_max != 0:
+				x_y_diffrenz = x_pos_max/y_pos_max
 		
-		if not x_pos_max == 0 or y_pos_max == 0:
-			x_y_diffrenz = x_pos_max/y_pos_max
-			
+		if x_pos_max < 0:
+			x_first_round = false
+			x_pos_min = abs(x_pos_max)
+			x_pos_max = 0
+		
+		if y_pos_max < 0:
+			y_first_round = false
+			y_pos_min = abs(y_pos_max)
+			y_pos_max = 0
 		
 		make_variabels = false
 	
@@ -60,40 +74,41 @@ func damaging():
 		if counter >= 0.25:
 			body_in.hp -= 25
 			counter = 0
+			print("damage")
 
 func movment():
 	if x_first_round:
 		if x_pos_max > 0:
-			self.transform[2].x += 2
-			x_pos_max -= 2
-			x_pos_min += 2
+			self.transform[2].x += 2*speed_x
+			x_pos_max -= 2*speed_x
+			x_pos_min += 2*speed_x
 		
 		else:
 			x_first_round = false
 	
 	else:
 		if x_pos_min > 0:
-			self.transform[2].x -= 2
-			x_pos_max += 2
-			x_pos_min -= 2
+			self.transform[2].x -= 2*speed_x
+			x_pos_max += 2*speed_x
+			x_pos_min -= 2*speed_x
 		
 		else:
 			x_first_round = true
 		
 	if y_first_round:
 		if y_pos_max > 0:
-			self.transform[2].y += 2/x_y_diffrenz
-			y_pos_max -= 2/x_y_diffrenz
-			y_pos_min += 2/x_y_diffrenz
+			self.transform[2].y += (2/x_y_diffrenz)*speed_y
+			y_pos_max -= (2/x_y_diffrenz)*speed_y
+			y_pos_min += (2/x_y_diffrenz)*speed_y
 
 		else:
 			y_first_round = false
 	
 	else:
 		if y_pos_min > 0:
-			self.transform[2].y -= 2/x_y_diffrenz
-			y_pos_max += 2/x_y_diffrenz
-			y_pos_min -= 2/x_y_diffrenz
-		
+			self.transform[2].y -= (2/x_y_diffrenz)*speed_y
+			y_pos_max += (2/x_y_diffrenz)*speed_y
+			y_pos_min -= (2/x_y_diffrenz)*speed_y
+
 		else:
 			y_first_round = true

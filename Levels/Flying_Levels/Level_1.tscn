@@ -15,6 +15,7 @@ tile_data = PoolIntArray( -524290, 3, 0, -524289, 3, 0, -589824, 3, 0, -589823, 
 position = Vector2( 747.622, 816.62 )
 
 [node name="Camera2D" type="Camera2D" parent="FlyingCharakter"]
+current = true
 zoom = Vector2( 0.53, 0.55 )
 
 [node name="SpinningTraps" type="Node" parent="."]
@@ -30,3 +31,27 @@ position = Vector2( 671.555, 160.253 )
 
 [node name="SpinningTrap4" parent="SpinningTraps" instance=ExtResource( 1 )]
 position = Vector2( 1055.56, 160.253 )
+
+[node name="SpinningTrap5" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 671.918, 352.088 )
+
+[node name="SpinningTrap6" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 1055.95, 351.724 )
+
+[node name="SpinningTrap7" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 1247.95, 351.724 )
+
+[node name="SpinningTrap8" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 479.918, 351.724 )
+
+[node name="SpinningTrap9" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 1055.56, 160.253 )
+
+[node name="SpinningTrap10" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 671.555, 160.253 )
+
+[node name="SpinningTrap11" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 671.918, 352.088 )
+
+[node name="SpinningTrap12" parent="SpinningTraps" instance=ExtResource( 1 )]
+position = Vector2( 1055.95, 352.088 )

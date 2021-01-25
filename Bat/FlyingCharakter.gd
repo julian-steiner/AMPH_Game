@@ -5,9 +5,10 @@ extends RigidBody2D
 const upflight_max = 200;
 const downflight_max = -100;
 const xflight_max = 300;
-const xflight_acc = 120;
+const xflight_acc = 80;
 
 var hp = 100;
+var hp_stat = 100;
 var counter = 0;
 var step = 0;
 var priority = false;
@@ -55,13 +56,19 @@ func _integrate_forces(state):
 	state.set_linear_velocity(velocity)
 	_animation_handling(velocity, on_floor)
 
+	if hp_stat != hp:
+		priority = true
+	hp_stat = hp
+
 func _animation_handling(velocity, on_floor):
 	if hp <= 0:
 		$AnimatedSprite.play("Death")
+		$HealthBar.value = hp
 		counter += step
 		if counter >= 0.5:
 			queue_free()
 			counter = 0
+
 	elif priority == true:
 		$AnimatedSprite.play("Hurt")
 		$HealthBar.value = hp
@@ -69,7 +76,7 @@ func _animation_handling(velocity, on_floor):
 		if counter >= 0.5:
 			counter = 0
 			priority = false
-
+	
 	elif attak == true:
 		init_attack()
 		$AnimatedSprite.play("Attak")
