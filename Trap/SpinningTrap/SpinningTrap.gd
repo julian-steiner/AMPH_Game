@@ -1,7 +1,7 @@
 class_name SpinningTrap
 extends StaticBody2D
 
-const Traps = {"SpinningTrap": [false, [100, 50]], "SpinningTrap2": [true, [0, 100]]};
+const Traps = {"SpinningTrap": [false, [100, 100]], "SpinningTrap2": [true, [0, 100]]};
 
 var give_damage = false;
 var counter = 0;
@@ -32,6 +32,7 @@ func _physics_process(delta):
 		
 		if not x_pos_max == 0 or y_pos_max == 0:
 			x_y_diffrenz = x_pos_max/y_pos_max
+			
 		
 		make_variabels = false
 	
@@ -63,36 +64,36 @@ func damaging():
 func movment():
 	if x_first_round:
 		if x_pos_max > 0:
-			self.transform[2].x += 1
-			x_pos_max -= 1
-			x_pos_min += 1
+			self.transform[2].x += 2
+			x_pos_max -= 2
+			x_pos_min += 2
 		
 		else:
 			x_first_round = false
 	
 	else:
 		if x_pos_min > 0:
-			self.transform[2].x -= 1
-			x_pos_max += 1
-			x_pos_min -= 1
+			self.transform[2].x -= 2
+			x_pos_max += 2
+			x_pos_min -= 2
 		
 		else:
 			x_first_round = true
 		
 	if y_first_round:
 		if y_pos_max > 0:
-			self.transform[2].y += 1/x_y_diffrenz
-			y_pos_max -= 1/x_y_diffrenz
-			y_pos_min += 1/x_y_diffrenz
+			self.transform[2].y += 2/x_y_diffrenz
+			y_pos_max -= 2/x_y_diffrenz
+			y_pos_min += 2/x_y_diffrenz
 
 		else:
 			y_first_round = false
 	
 	else:
 		if y_pos_min > 0:
-			self.transform[2].y -= 1/x_y_diffrenz
-			y_pos_max += 1/x_y_diffrenz
-			y_pos_min -= 1/x_y_diffrenz
+			self.transform[2].y -= 2/x_y_diffrenz
+			y_pos_max += 2/x_y_diffrenz
+			y_pos_min -= 2/x_y_diffrenz
 		
 		else:
 			y_first_round = true

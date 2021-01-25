@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "RigidBody2D",
 "class": "Character",
 "language": "GDScript",
 "path": "res://Player/Character.gd"
@@ -19,12 +19,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/Dagger.gd"
 }, {
-"base": "Reference",
+"base": "RigidBody2D",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://Enemy/Enemy.gd"
 }, {
-"base": "Reference",
+"base": "RigidBody2D",
 "class": "FlyingCharakter",
 "language": "GDScript",
 "path": "res://Bat/FlyingCharakter.gd"
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "StaticBody2D",
 "class": "SpinningTrap",
 "language": "GDScript",
-"path": "res://Trap/SpinningTrap.gd"
+"path": "res://Trap/SpinningTrap/SpinningTrap.gd"
 }, {
 "base": "StaticBody2D",
 "class": "Tuere",
@@ -54,7 +54,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://World.gd"
 }, {
-"base": "Reference",
+"base": "Area2D",
 "class": "sword",
 "language": "GDScript",
 "path": "res://Enemy/Sword.gd"
