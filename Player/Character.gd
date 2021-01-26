@@ -112,6 +112,7 @@ func handle_animations(var velocity, var priority):
 		animation_counter += step;
 		if (animation_counter >= 1):
 			queue_free();
+			get_tree().change_scene("res://UserInterface//UI.tscn")
 			print("Deleted")
 	
 	elif (animation_priority == 6):

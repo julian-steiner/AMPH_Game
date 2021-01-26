@@ -1,6 +1,6 @@
 extends Node2D
 
-var level_assassin = 1
+var level_assassin = 2
 var level_bat = 0
 
 func save_data():
