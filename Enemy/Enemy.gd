@@ -148,9 +148,17 @@ func _on_Area2D_body_entered(body):
 	if body is Character:
 		playerInRange = true;
 		playerCopy = body;
-		
+
+	if body is FlyingCharakter:
+		playerInRange = true;
+		playerCopy = body;
+	
 func _on_Area2D_body_exited(body):
 	if body is Character:
+		playerInRange = false;
+		playerCopy = 0;
+	
+	if body is FlyingCharakter:
 		playerInRange = false;
 		playerCopy = 0;
 
