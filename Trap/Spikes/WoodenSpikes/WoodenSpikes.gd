@@ -17,7 +17,8 @@ func _ready():
 
 
 func _on_Damage_Area_body_entered(body):
-	if body is Character:
+	if body is Character or body is FlyingCharakter:
 		body.hp -= 100
 	if body is Enemy:
 		body.hp -= 40
+
