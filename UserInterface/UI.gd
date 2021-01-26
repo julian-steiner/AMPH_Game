@@ -20,6 +20,7 @@ func _ready():
 var level_number = 1
 
 func _on_Start_Button_pressed():
+<<<<<<< HEAD
 	get_tree().change_scene("res://Levels/Charakter_Levels/Level_" + str(level_number) + ".tscn")
 
 
