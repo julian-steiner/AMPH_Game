@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Trap/SpinningTrap/SpinningTrap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bat/FlyingCharakter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/Fire.tres" type="TileSet" id=3]
 [ext_resource path="res://Trap/Spikes/MetalSpikes/MetalSpikes.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Medkit/Medkit.tscn" type="PackedScene" id=6]
 
 [node name="Level_1" type="Node2D"]
 __meta__ = {
@@ -431,20 +432,40 @@ position = Vector2( 1055.95, 352.088 )
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
+[node name="Enemy" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 1774.01, -3256.37 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 5 )]
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 1989.9, -3253.19 )
 
-[node name="Enemy3" parent="." instance=ExtResource( 5 )]
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 5056.46, -3756.81 )
 
-[node name="Enemy4" parent="." instance=ExtResource( 5 )]
+[node name="Enemy4" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 3691.88, -3761.04 )
 
-[node name="Enemy5" parent="." instance=ExtResource( 5 )]
+[node name="Enemy5" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 3145.19, -3765.28 )
 
-[node name="Enemy6" parent="." instance=ExtResource( 5 )]
+[node name="Enemy6" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 4196.18, -3769.52 )
+
+[node name="Enemy7" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 42.2925, -3327.83 )
+
+[node name="Enemy8" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -443.589, -3327.83 )
+
+[node name="Enemy9" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( -854.72, -3322.49 )
+
+[node name="MedKit" type="Node" parent="."]
+
+[node name="Medkit" parent="MedKit" instance=ExtResource( 6 )]
+position = Vector2( 3866.55, -3742.26 )
+
+[node name="Medkit2" parent="MedKit" instance=ExtResource( 6 )]
+position = Vector2( 5252.65, -3742.49 )
+
+[node name="Medkit3" parent="MedKit" instance=ExtResource( 6 )]
+position = Vector2( 13694.5, -350.4 )
