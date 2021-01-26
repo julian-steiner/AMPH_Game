@@ -33,3 +33,6 @@ func _on_Assassin_select_Button_pressed():
 
 func _on_Bat_select_Button_pressed():
 	pass # Replace with function body.
+=======
+	get_tree().change_scene("res://Levels/Flying_Levels/Level_" + str(level_number) + ".tscn")
+>>>>>>> develop
