@@ -13,7 +13,6 @@
 [ext_resource path="res://assets/background/tilesetOpenGameBackground.png" type="Texture" id=11]
 [ext_resource path="res://assets/tilemaps/DarkCastleTiles/DarkCastle_1_16x16.png" type="Texture" id=12]
 
-
 [node name="Level1" type="Node2D"]
 script = ExtResource( 8 )
 
@@ -720,5 +719,5 @@ region_rect = Rect2( 0, 0, 320, 260 )
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Level_1_end_door" parent="Node2D" instance=ExtResource( 10 )]
+[node name="endDoor" parent="Node2D" instance=ExtResource( 10 )]
 position = Vector2( 12448, 960.019 )

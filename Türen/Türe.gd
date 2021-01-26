@@ -29,9 +29,7 @@ func cancel_teleport():
 	timer = 0
 	
 func execute_teleport():
-	if self.name == "Level_1_end_door":
-		get_tree().change_scene("res://Levels/Level_2.tscn")
-	elif self.name == "endDoor":
+	if self.name == "endDoor":
 		get_tree().change_scene("res://Levels//Charakter_Levels//Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 	elif self.name == "falseDoor":
 		cancel_teleport()
