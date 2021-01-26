@@ -15,8 +15,8 @@ func save_data():
 func load_data():
 	var c_file = File.new();
 	c_file.open("res://game_information.save", File.READ)
-	var level_assassin = c_file.get_line()
-	var level_bat = c_file.get_line()
+	var level_assassin = int(c_file.get_line())
+	var level_bat = int(c_file.get_line())
 	c_file.close()
 	return {"level_assassin": level_assassin, "level_bat": level_bat}
 
@@ -34,7 +34,6 @@ func _on_Start_Button_pressed():
 	elif c_character == "bat":
 		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(level_bat) + ".tscn")
 	
-
 func _on_Continue_Button_pressed():
 	pass
 
@@ -44,3 +43,7 @@ func _on_Assassin_select_Button_pressed():
 func _on_Bat_select_Button_pressed():
 	c_character = "bat"
 
+func _on_Reset_Button_pressed():
+	level_assassin = 1
+	level_bat = 1
+	save_data()
