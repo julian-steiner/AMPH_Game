@@ -2,6 +2,7 @@ class_name Enemy
 extends RigidBody2D
 
 var on_floor = false;
+
 const walk_velocity = 80;
 const sprint_velocity = 130;
 const acceleration = 130;

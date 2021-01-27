@@ -1,7 +1,7 @@
 class_name SpinningTrap
 extends StaticBody2D
 
-const Traps = {"SpinningTrapT": [true, [0, 0]],"SpinningTrapF": [false, [0, 0]], "SpinningTrap": [false, [-3*64, 0]], "SpinningTrap2": [true, [3*64, 0]], "SpinningTrap3": [false, [6*64, 0]], "SpinningTrap4": [true, [-6*64, 0]], "SpinningTrap5": [false, [0, -3*64]], "SpinningTrap9": [true, [0, 3*64]]};
+const Traps = {"SpinningTrapT": [true, [0, 0]],"SpinningTrapF": [false, [0, 0]], "SpinningTrap": [false, [-3*64, 0]], "SpinningTrap2": [true, [3*64, 0]], "SpinningTrap3": [false, [6*64, 0]], "SpinningTrap4": [true, [-6*64, 0]], "SpinningTrap5": [false, [0, -3*64]], "SpinningTrap6": [true, [0, 3*64]]};
 
 var give_damage = false;
 var counter = 0;
