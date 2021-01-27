@@ -12,10 +12,12 @@ var hp_stat = 100;
 var counter = 0;
 var step = 0;
 var priority = false;
+var damage = false;
 var attak = false;
 var attacking = false;
 var headnut_copy = 0;
 var direction = -1;
+var c_position = 0;
 
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
@@ -53,9 +55,13 @@ func _integrate_forces(state):
 	velocity += state.get_total_gravity() * step
 	state.set_linear_velocity(velocity)
 	_animation_handling(velocity, on_floor)
-
+	
+	c_position = state.transform[2];
+	
 	if hp_stat != hp:
 		priority = true
+		if hp_stat > hp:
+			damage = true
 	hp_stat = hp
 
 func _animation_handling(velocity, on_floor):
@@ -65,15 +71,18 @@ func _animation_handling(velocity, on_floor):
 		counter += step
 		if counter >= 0.5:
 			queue_free()
+			get_tree().change_scene("res://UserInterface//UI.tscn")
 			counter = 0
 
 	elif priority == true:
-		$AnimatedSprite.play("Hurt")
 		$HealthBar.value = hp
-		counter += step
-		if counter >= 0.5:
-			counter = 0
-			priority = false
+		if damage:
+			$AnimatedSprite.play("Hurt")
+			counter += step
+			if counter >= 0.5:
+				counter = 0
+				damage = false
+		priority = false
 	
 	elif attak == true:
 		init_attack()
