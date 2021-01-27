@@ -54,7 +54,7 @@ func _integrate_forces(state):
 	state.set_linear_velocity(velocity)
 	_animation_handling(velocity, on_floor)
 
-	if hp_stat != hp:
+	if hp_stat > hp:
 		priority = true
 	hp_stat = hp
 
