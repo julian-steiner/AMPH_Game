@@ -112,7 +112,7 @@ func handle_animations(var velocity, var priority):
 		animation_counter += step;
 		if (animation_counter >= 1):
 			queue_free();
-			get_tree().change_scene("res://UserInterface//UI.tscn")
+			get_tree().change_scene("res://UserInterface//Death_UI.tscn")
 			print("Deleted")
 	
 	elif (animation_priority == 6):
@@ -120,6 +120,7 @@ func handle_animations(var velocity, var priority):
 		
 	else:
 		if abs(velocity.x) > 0 and abs(velocity.x) <= walk_velocity:
+
 			$AnimatedSprite.play("WALK");
 		elif abs(velocity.x) > walk_velocity:
 			$AnimatedSprite.play("SPRINT");
