@@ -38,13 +38,14 @@ func handle_animations(var velocity, var priority):
 			$AnimatedSprite.flip_h = true;
 			$AnimatedSprite.offset.x = -20;
 		
-	if hp <= 0:
+	if hp <= 0 and not dying:
+		print("Death")
 		$AnimatedSprite.offset.y = 15;
 		$AnimatedSprite.play("DEATH");
-		var dying = true;
+		dying = true;
 		animation_priority = 5;
 		
-	if hp < hp_p:
+	if hp < hp_p and not dying:
 		animation_counter = 0;
 		$AnimatedSprite.play("HURT");
 		animation_priority = 4;

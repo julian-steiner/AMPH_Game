@@ -1,38 +1,88 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://assets/UI/Buttons/Start_Button_normal.png" type="Texture" id=1]
 [ext_resource path="res://assets/UI/Buttons/Button_pressed.png" type="Texture" id=2]
 [ext_resource path="res://UserInterface/UI.gd" type="Script" id=3]
 [ext_resource path="res://assets/UI/Buttons/Assassin_character_selection_normal.png" type="Texture" id=4]
 [ext_resource path="res://assets/UI/Buttons/Bat_character_selection_normal.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/Backgrounds/cave_entrance_256x150.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/Buttons/Reset_button.png" type="Texture" id=7]
+[ext_resource path="res://assets/Rogue/Idle/idle1.png" type="Texture" id=8]
+[ext_resource path="res://assets/Rogue/Idle/idle4.png" type="Texture" id=9]
+[ext_resource path="res://assets/Rogue/Idle/idle8.png" type="Texture" id=10]
+[ext_resource path="res://assets/Rogue/Idle/idle3.png" type="Texture" id=11]
+[ext_resource path="res://assets/Rogue/Idle/idle10.png" type="Texture" id=12]
+[ext_resource path="res://assets/Rogue/Idle/idle5.png" type="Texture" id=13]
+[ext_resource path="res://assets/Rogue/Idle/idle6.png" type="Texture" id=14]
+[ext_resource path="res://assets/Rogue/Idle/idle14.png" type="Texture" id=15]
+[ext_resource path="res://assets/Rogue/Idle/idle7.png" type="Texture" id=16]
+[ext_resource path="res://assets/Rogue/Idle/idle12.png" type="Texture" id=17]
+[ext_resource path="res://assets/Rogue/Idle/idle13.png" type="Texture" id=18]
+[ext_resource path="res://assets/Rogue/Idle/idle18.png" type="Texture" id=19]
+[ext_resource path="res://assets/Rogue/Idle/idle9.png" type="Texture" id=20]
+[ext_resource path="res://assets/Rogue/Idle/idle15.png" type="Texture" id=21]
+[ext_resource path="res://assets/Rogue/Idle/idle2.png" type="Texture" id=22]
+[ext_resource path="res://assets/Rogue/Idle/idle16.png" type="Texture" id=23]
+[ext_resource path="res://assets/Rogue/Idle/idle17.png" type="Texture" id=24]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_003.png" type="Texture" id=25]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_004.png" type="Texture" id=26]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_000.png" type="Texture" id=27]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_007.png" type="Texture" id=28]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_006.png" type="Texture" id=29]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_005.png" type="Texture" id=30]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_001.png" type="Texture" id=31]
+[ext_resource path="res://assets/Bat/02-Fly/__Bat02_Fly_002.png" type="Texture" id=32]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 419, 193 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 22 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 12 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 19 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 15.0
+} ]
 
 [node name="Control" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -952.929
-margin_top = -542.828
-margin_right = 967.071
-margin_bottom = 537.172
+margin_left = -947.889
+margin_top = -545.348
+margin_right = 972.111
+margin_bottom = 534.652
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start_Button" type="Button" parent="."]
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 947.544, 543.601 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Start_Button" type="Button" parent="Buttons"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -120.519
-margin_top = -55.092
-margin_right = 127.481
-margin_bottom = 58.908
+margin_left = 767.746
+margin_top = 360.864
+margin_right = 1015.75
+margin_bottom = 474.864
 focus_mode = 0
 custom_styles/pressed = SubResource( 1 )
 shortcut_in_tooltip = false
@@ -44,35 +94,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Continue_Button" type="Button" parent="."]
+[node name="Assassin_select" type="Button" parent="Buttons"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 351.828
-margin_top = -21.1509
-margin_right = 599.828
-margin_bottom = 92.8491
-focus_mode = 0
-custom_styles/pressed = SubResource( 1 )
-shortcut_in_tooltip = false
-enabled_focus_mode = 0
-icon = ExtResource( 1 )
-flat = true
-expand_icon = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Assassin_select" type="Button" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -649.435
-margin_top = -220.555
-margin_right = -401.435
-margin_bottom = -106.555
+margin_left = 319.815
+margin_top = 258.62
+margin_right = 567.815
+margin_bottom = 372.62
 focus_mode = 0
 custom_styles/pressed = SubResource( 1 )
 shortcut_in_tooltip = false
@@ -84,15 +114,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bat_select" type="Button" parent="."]
+[node name="Bat_select" type="Button" parent="Buttons"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 360.313
-margin_top = -230.454
-margin_right = 608.313
-margin_bottom = -116.454
+margin_left = 1226.66
+margin_top = 253.456
+margin_right = 1474.66
+margin_bottom = 367.456
 focus_mode = 0
 custom_styles/pressed = SubResource( 1 )
 shortcut_in_tooltip = false
@@ -104,27 +134,45 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Reset_Button" type="Button" parent="."]
+[node name="Reset_Button" type="Button" parent="Buttons"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -112.034
-margin_top = 123.099
-margin_right = 135.966
-margin_bottom = 237.099
+margin_left = 82.6099
+margin_top = 848.94
+margin_right = 330.61
+margin_bottom = 962.94
 focus_mode = 0
 custom_styles/pressed = SubResource( 1 )
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
-icon = ExtResource( 5 )
+icon = ExtResource( 7 )
 flat = true
 expand_icon = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="Start_Button" to="." method="_on_Start_Button_pressed"]
-[connection signal="pressed" from="Continue_Button" to="." method="_on_Continue_Button_pressed"]
-[connection signal="pressed" from="Assassin_select" to="." method="_on_Assassin_select_Button_pressed"]
-[connection signal="pressed" from="Bat_select" to="." method="_on_Bat_select_Button_pressed"]
-[connection signal="pressed" from="Reset_Button" to="." method="_on_Reset_Button_pressed"]
+
+[node name="Assassin_sprite" type="AnimatedSprite" parent="Buttons"]
+position = Vector2( 495.924, 126.149 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+animation = "IDLE"
+frame = 15
+playing = true
+
+[node name="Bat_sprite" type="AnimatedSprite" parent="Buttons"]
+position = Vector2( 1350.28, 199.071 )
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 3 )
+animation = "IDLE"
+frame = 5
+playing = true
+__meta__ = {
+"_editor_description_": "."
+}
+[connection signal="pressed" from="Buttons/Start_Button" to="." method="_on_Start_Button_pressed"]
+[connection signal="pressed" from="Buttons/Assassin_select" to="." method="_on_Assassin_select_Button_pressed"]
+[connection signal="pressed" from="Buttons/Bat_select" to="." method="_on_Bat_select_Button_pressed"]
+[connection signal="pressed" from="Buttons/Reset_Button" to="." method="_on_Reset_Button_pressed"]
