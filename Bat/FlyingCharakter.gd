@@ -71,7 +71,7 @@ func _animation_handling(velocity, on_floor):
 		counter += step
 		if counter >= 0.5:
 			queue_free()
-			get_tree().change_scene("res://UserInterface//UI.tscn")
+			get_tree().change_scene("res://UserInterface//Death_UI.tscn")
 			counter = 0
 
 	elif priority == true:

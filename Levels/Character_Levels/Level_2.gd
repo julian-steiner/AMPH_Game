@@ -21,8 +21,13 @@ func load_data():
 	c_file.close()
 	return {"level_assassin": level_assassin, "level_bat": level_bat, "c_character": c_character}
 
+func dynamic_zooming():
+	var window_size = OS.window_size
+	get_node("Character/Character/Camera2D").zoom = Vector2(1024 / window_size.x  , 600 / window_size.y)
+
 func _ready():
 	var data = load_data();
 	level_bat = data.get("level_bat");
 	c_character = data.get("c_character");
 	save_data();
+	dynamic_zooming();
