@@ -22,6 +22,8 @@ var sword = 0;
 var attacking = false;
 var dying = false;
 
+var arrow = 0;
+
 var hp = 40;
 var hp_p = 40; #Variable to store the previous hp
 
@@ -149,19 +151,19 @@ func _integrate_forces(state):
 
 func _on_Area2D_body_entered(body):
 	if body is FlyingCharakter:
-		var arrow = load('res://Enemy//Anti_underschluepfer.tscn').instance();
+		arrow = load('res://Enemy//Anti_underschluepfer.tscn').instance();
 		add_child(arrow);
 	
-func _on_Area2D_body_exited(body):
 	if body is Character:
-		playerInRange = false;
-		playerCopy = 0;
-	
+		arrow = load('res://Enemy//Anti_underschluepfer.tscn').instance();
+		add_child(arrow);
+
+func _on_Area2D_body_exited(body):
 	if body is FlyingCharakter:
-		playerInRange = false;
-		playerCopy = 0;
-
-
+		arrow.queue_free()
+	
+	if body is Character:
+		arrow.queue_free()
 
 func _on_Range_body_entered(body):
 	if body is Character:
@@ -171,3 +173,13 @@ func _on_Range_body_entered(body):
 	if body is FlyingCharakter:
 		playerInRange = true;
 		playerCopy = body;
+
+
+func _on_Range_body_exited(body):
+	if body is Character:
+		playerInRange = false;
+		playerCopy = 0;
+	
+	if body is FlyingCharakter:
+		playerInRange = false;
+		playerCopy = 0;
