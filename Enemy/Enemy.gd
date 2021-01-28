@@ -146,15 +146,9 @@ func _integrate_forces(state):
 	
 	state.linear_velocity = velocity;
 
-func _on_Area2D_body_entered(body):
-	
-	if body is Character:
-		playerInRange = true;
-		playerCopy = body;
 
+func _on_Area2D_body_entered(body):
 	if body is FlyingCharakter:
-		playerInRange = true;
-		playerCopy = body;
 		var arrow = load('res://Enemy//Anti_underschluepfer.tscn').instance();
 		add_child(arrow);
 	
@@ -167,3 +161,13 @@ func _on_Area2D_body_exited(body):
 		playerInRange = false;
 		playerCopy = 0;
 
+
+
+func _on_Range_body_entered(body):
+	if body is Character:
+		playerInRange = true;
+		playerCopy = body;
+
+	if body is FlyingCharakter:
+		playerInRange = true;
+		playerCopy = body;
