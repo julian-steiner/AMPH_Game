@@ -1,7 +1,7 @@
 class_name SpinningTrap
 extends StaticBody2D
 
-const Traps = {"SpinningTrapT": [true, [0, 0]],"SpinningTrapF": [false, [0, 0]], "SpinningTrap": [false, [-3*64, 0]], "SpinningTrap2": [true, [3*64, 0]], "SpinningTrap3": [false, [6*64, 0]], "SpinningTrap4": [true, [-6*64, 0]], "SpinningTrap5": [false, [0, -3*64]], "SpinningTrap6": [true, [0, 3*64]]};
+const Traps = {"SpinningTrapT": [true, [0, 0]],"SpinningTrapF": [false, [0, 0]], "SpinningTrap": [false, [-3*64, 0]], "SpinningTrap2": [true, [3*64, 0]], "SpinningTrap3": [false, [6*64, 0]], "SpinningTrap4": [true, [-6*64, 0]], "SpinningTrap5": [false, [0, -3*64]], "SpinningTrap6": [true, [0, 3*64]], "SpinningTrap_Level2_1": [true, [0, -6 * 64]], "SpinningTrap_Level2_2": [true, [0, 6 * 64]], "SpinningTrap_Level2_3": [true, [4*64, 0]] , "SpinningTrap_Level2_4": [true, [-4*64, 0]], "SpinningTrap_Level2_5": [true, [0, 4*64]], "SpinningTrap_Level2_6": [true, [4*64, 0]], "SpinningTrap_Level2_7": [true, [-4*64, 0]], "SpinningTrap_Level2_8": [true, [7*64, 0]], "SpinningTrap_Level2_9": [true, [-7*64, 0]]};
 
 var give_damage = false;
 var counter = 0;
