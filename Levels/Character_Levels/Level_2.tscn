@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Trap/Spikes/MetalSpikes/MetalSpikes.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Tilesets/Dark Castle Big.tres" type="TileSet" id=6]
 [ext_resource path="res://Tilesets/Dark Castle.tres" type="TileSet" id=7]
 [ext_resource path="res://Levels/Character_Levels/Level_2.gd" type="Script" id=8]
+[ext_resource path="res://chest/Chest.tscn" type="PackedScene" id=9]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource( 8 )
@@ -305,3 +306,7 @@ position = Vector2( 117.535, 529.944 )
 [node name="Camera2D" type="Camera2D" parent="Character/Character"]
 current = true
 zoom = Vector2( 0.53, 0.55 )
+
+[node name="Chest" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2426.49, 800.006 )
+z_index = -1
