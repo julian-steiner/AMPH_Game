@@ -74,7 +74,6 @@ func damaging():
 		if counter >= 0.25:
 			body_in.hp -= 25
 			counter = 0
-			print("damage")
 
 func movment():
 	if x_first_round:
