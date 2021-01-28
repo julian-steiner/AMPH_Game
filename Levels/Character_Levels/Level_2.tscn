@@ -12,13 +12,6 @@
 [node name="Level_2" type="Node2D"]
 script = ExtResource( 8 )
 
-[node name="Character" parent="." instance=ExtResource( 1 )]
-position = Vector2( 117.535, 529.944 )
-
-[node name="Camera2D" type="Camera2D" parent="Character"]
-current = true
-zoom = Vector2( 0.53, 0.55 )
-
 [node name="All Enemys" type="Node" parent="."]
 
 [node name="Enemy" parent="All Enemys" instance=ExtResource( 4 )]
@@ -300,3 +293,12 @@ tile_data = PoolIntArray( -1310758, 0, 0, -1310757, 0, 0, -1310756, 0, 0, -13107
 tile_set = ExtResource( 6 )
 format = 1
 tile_data = PoolIntArray( -196502, 0, 0, -130966, 1, 0, 131176, 0, 0, 131178, 0, 0, 196712, 1, 0, 196714, 1, 0, 262194, 0, 0, 262199, 0, 0, 327730, 1, 0, 327735, 1, 0, 327756, 0, 0, 327758, 0, 0, 327784, 0, 0, 327786, 0, 0, 393292, 1, 0, 393294, 1, 0, 393320, 1, 0, 393322, 1, 0, 458845, 0, 0, 458852, 0, 0, 524381, 1, 0, 524388, 1, 0, 589900, 0, 0, 589902, 0, 0, 655436, 1, 0, 655438, 1, 0, 720900, 6, 0, 720989, 0, 0, 720996, 0, 0, 786436, 7, 0, 786525, 1, 0, 786532, 1, 0, 917514, 4, 0, 983050, 5, 0, 983140, 0, 0, 1048676, 1, 0, 1114130, 4, 0, 1245159, 0, 0, 1179666, 5, 0, 1310695, 1, 0, 1245279, 0, 0, 1245284, 0, 0, 1310815, 1, 0, 1310820, 1, 0, 1507423, 0, 0, 1507428, 0, 0, 1572959, 1, 0, 1572964, 1, 0, 1704031, 4, 0, 1704036, 4, 0, 1769567, 5, 0, 1769572, 5, 0, 1835067, 0, 0, 1900603, 1, 0, 2097211, 0, 0, 2097213, 0, 0, 2162747, 1, 0, 2162749, 1, 0 )
+
+[node name="Character" type="Node2D" parent="."]
+
+[node name="Character" parent="Character" instance=ExtResource( 1 )]
+position = Vector2( 117.535, 529.944 )
+
+[node name="Camera2D" type="Camera2D" parent="Character/Character"]
+current = true
+zoom = Vector2( 0.53, 0.55 )
