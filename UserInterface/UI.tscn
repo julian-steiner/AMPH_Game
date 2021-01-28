@@ -159,7 +159,7 @@ position = Vector2( 495.924, 126.149 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
 animation = "IDLE"
-frame = 15
+frame = 16
 playing = true
 
 [node name="Bat_sprite" type="AnimatedSprite" parent="Buttons"]
