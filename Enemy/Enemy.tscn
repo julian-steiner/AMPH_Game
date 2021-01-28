@@ -63,15 +63,15 @@ animations = [ {
 "name": "DEATH",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "WALK",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 25 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "ATTACK_STANDING",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "WALK",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
 "loop": true,
@@ -110,6 +110,7 @@ height = 51.6618
 
 [node name="Enemy" type="RigidBody2D"]
 mode = 2
+mass = 2000.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 3.0
 contacts_reported = 3
@@ -120,7 +121,7 @@ position = Vector2( 0, -40 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "IDLE"
-frame = 4
+frame = 3
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -168,3 +169,4 @@ position = Vector2( 0, 0.529724 )
 shape = SubResource( 6 )
 [connection signal="body_entered" from="Range" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Range" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
