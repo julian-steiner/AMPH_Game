@@ -167,7 +167,7 @@ position = Vector2( 1350.28, 199.071 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "IDLE"
-frame = 2
+frame = 5
 playing = true
 __meta__ = {
 "_editor_description_": "."
