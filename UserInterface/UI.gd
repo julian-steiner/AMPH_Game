@@ -5,6 +5,14 @@ var level_bat = 1
 
 var c_character = "0"
 
+func preload_levels():
+	preload("res://Levels//Character_Levels//Level_1.tscn")
+	preload("res://Levels//Character_Levels//Level_2.tscn")
+	preload("res://Levels//Flying_Levels//Level_1.tscn")
+	preload("res://Levels//Flying_Levels//Level_2.tscn")
+	preload("res://Levels//Flying_Levels//Level_3.tscn")
+	preload("res://Levels//Flying_Levels//Level_4.tscn")
+
 func save_data():
 	var c_file = File.new();
 	c_file.open("res://game_information.save", File.WRITE)
@@ -23,12 +31,13 @@ func load_data():
 	return {"level_assassin": level_assassin, "level_bat": level_bat, "c_character": c_character}
 
 func _ready():
+	preload_levels();
 	var data = load_data()
 	level_assassin = data.get("level_assassin")
 	level_bat = data.get("level_bat")
 
 func _on_Start_Button_pressed():
-	print(c_character)
+	$Buttons/Button_Sound.play();
 	if c_character == "assassin":
 		save_data();
 		get_tree().change_scene("res://Levels//Character_Levels//Level_" + str(level_assassin) + ".tscn")
@@ -40,12 +49,15 @@ func _on_Continue_Button_pressed():
 	pass
 
 func _on_Assassin_select_Button_pressed():
+	$Buttons/Button_Sound.play();
 	c_character = "assassin"
 
 func _on_Bat_select_Button_pressed():
+	$Buttons/Button_Sound.play();
 	c_character = "bat"
 
 func _on_Reset_Button_pressed():
+	$Buttons/Button_Sound.play();
 	level_assassin = 1
 	level_bat = 1
 	save_data()

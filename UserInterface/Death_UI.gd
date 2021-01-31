@@ -29,10 +29,11 @@ func _ready():
 	print(data)
 
 func _on_Menu_button_pressed():
-	get_tree().change_scene("res://UserInterface/UI.tscn")
+	$Buttons/Button_Sound.play();
+	get_tree().change_scene("res://sUserInterface/UI.tscn")
 
 func _on_Continue_button_pressed():
-	print(c_character)
+	$Buttons/Button_Sound.play();
 	if c_character == "assassin":
 		save_data();
 		get_tree().change_scene("res://Levels//Character_Levels//Level_" + str(level_assassin) + ".tscn")
