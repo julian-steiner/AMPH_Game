@@ -30,7 +30,7 @@ func _ready():
 
 func _on_Menu_button_pressed():
 	$Buttons/Button_Sound.play();
-	get_tree().change_scene("res://sUserInterface/UI.tscn")
+	get_tree().change_scene("res://UserInterface/UI.tscn")
 
 func _on_Continue_button_pressed():
 	$Buttons/Button_Sound.play();
