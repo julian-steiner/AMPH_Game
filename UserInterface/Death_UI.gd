@@ -33,7 +33,6 @@ func _on_Menu_button_pressed():
 	get_tree().change_scene("res://UserInterface/UI.tscn")
 
 func _on_Continue_button_pressed():
-	$Buttons/Button_Sound.play();
 	if c_character == "assassin":
 		save_data();
 		get_tree().change_scene("res://Levels//Character_Levels//Level_" + str(level_assassin) + ".tscn")

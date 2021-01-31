@@ -44,9 +44,6 @@ func _on_Start_Button_pressed():
 	elif c_character == "bat":
 		save_data();
 		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(level_bat) + ".tscn")
-	
-func _on_Continue_Button_pressed():
-	pass
 
 func _on_Assassin_select_Button_pressed():
 	$Buttons/Button_Sound.play();
