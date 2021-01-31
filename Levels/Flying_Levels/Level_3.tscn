@@ -103,5 +103,11 @@ position = Vector2( -281.191, -26.9622 )
 [node name="Camera2D" type="Camera2D" parent="FlyingCharakter"]
 current = true
 
-[node name="endBatDoor" parent="." instance=ExtResource( 5 )]
+[node name="Tueren" type="Node" parent="."]
+
+[node name="endBatDoor" parent="Tueren" instance=ExtResource( 5 )]
 position = Vector2( -2592, -64 )
+
+[node name="falseDoor" parent="Tueren" instance=ExtResource( 5 )]
+position = Vector2( -288, -64 )
+z_index = -1
