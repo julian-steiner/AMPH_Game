@@ -168,6 +168,10 @@ position = Vector2( 1350.28, 199.071 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "IDLE"
+<<<<<<< Updated upstream
+=======
+frame = 7
+>>>>>>> Stashed changes
 playing = true
 __meta__ = {
 "_editor_description_": "."
