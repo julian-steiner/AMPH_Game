@@ -701,7 +701,7 @@ texture = ExtResource( 12 )
 [node name="Character" type="Node2D" parent="."]
 
 [node name="Character" parent="Character" instance=ExtResource( 5 )]
-position = Vector2( 254.479, 799.969 )
+position = Vector2( 252.36, 986.435 )
 
 [node name="Camera2D" type="Camera2D" parent="Character/Character"]
 current = true
@@ -713,7 +713,7 @@ limit_smoothed = true
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Character/Character"]
 
 [node name="Sprite" type="Sprite" parent="Character/Character/ParallaxBackground"]
-position = Vector2( 1027.84, 508.482 )
+position = Vector2( 1021.23, 600.661 )
 scale = Vector2( 7.27489, 4.94613 )
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 320, 260 )

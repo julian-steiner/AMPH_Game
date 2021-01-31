@@ -46,6 +46,7 @@ func handle_animations(var velocity, var priority):
 		animation_priority = 5;
 		
 	if hp < hp_p and not dying:
+		$Sounds/Hurt_Sound.play();
 		$AnimatedSprite.play("HURT");
 		animation_priority = 4;
 				
@@ -162,6 +163,9 @@ func throw_knife():
 func teleport(var coordinates):
 	c_position = coordinates
 	teleporting = true
+	
+func _ready():
+	$Sounds/Click_Sound.play();
 	
 func _integrate_forces(state):
 	if not teleporting:

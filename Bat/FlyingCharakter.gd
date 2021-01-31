@@ -19,6 +19,11 @@ var headnut_copy = 0;
 var direction = -1;
 var c_position = 0;
 
+	
+func _ready():
+	$Sounds/Click_Sound.play();
+	
+
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
 	var key_pressed = false;
