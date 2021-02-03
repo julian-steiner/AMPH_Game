@@ -22,7 +22,8 @@ var sword = 0;
 var attacking = false;
 var dying = false;
 
-var arrow = 0;
+var keyd = false;
+var first_loading = true;
 
 var hp = 40;
 var hp_p = 40; #Variable to store the previous hp
@@ -46,6 +47,9 @@ func handle_animations(var velocity, var priority):
 		$AnimatedSprite.play("DEATH");
 		dying = true;
 		animation_priority = 5;
+		if self.name == "KeyEnemy":
+			keyd = true
+			
 		
 	if hp < hp_p and not dying:
 		animation_counter = 0;
@@ -141,6 +145,11 @@ func _integrate_forces(state):
 	
 	handle_animations(velocity, 0);
 	
+	if first_loading:
+		add_child(load('res://Enemy//Anti_underschluepfer.tscn').instance());
+		first_loading = false
+		print(first_loading)
+	
 	cooldown = max(0, cooldown - step)
 	
 	if dying:
@@ -148,22 +157,10 @@ func _integrate_forces(state):
 	
 	state.linear_velocity = velocity;
 
-
 func _on_Area2D_body_entered(body):
-	if body is FlyingCharakter:
-		arrow = load('res://Enemy//Anti_underschluepfer.tscn').instance();
-		add_child(arrow);
-	
-	if body is Character:
-		arrow = load('res://Enemy//Anti_underschluepfer.tscn').instance();
-		add_child(arrow);
-
-func _on_Area2D_body_exited(body):
-	if body is FlyingCharakter:
-		arrow.queue_free()
-	
-	if body is Character:
-		arrow.queue_free()
+	if keyd and body is FlyingCharakter:
+		body.key += 1
+		keyd = false
 
 func _on_Range_body_entered(body):
 	if body is Character:
@@ -173,7 +170,6 @@ func _on_Range_body_entered(body):
 	if body is FlyingCharakter:
 		playerInRange = true;
 		playerCopy = body;
-
 
 func _on_Range_body_exited(body):
 	if body is Character:

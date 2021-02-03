@@ -19,11 +19,13 @@ var headnut_copy = 0;
 var direction = -1;
 var c_position = 0;
 
-	
+var key = 0;
+var key_show = 100;
+var label_show = load('res://Bat//GainedKey.tscn').instance();
+
 func _ready():
 	$Sounds/Click_Sound.play();
 	
-
 func _integrate_forces(state):
 	var velocity = state.get_linear_velocity()
 	var key_pressed = false;
@@ -68,6 +70,15 @@ func _integrate_forces(state):
 		if hp_stat > hp:
 			damage = true
 	hp_stat = hp
+
+	if key == 1:
+		if key_show > 0:
+			add_child(label_show)
+			key_show -= 1
+		elif key_show == 0:
+			print("delete")
+			label_show.queue_free()
+			key_show -= 1
 
 func _animation_handling(velocity, on_floor):
 	if hp <= 0:

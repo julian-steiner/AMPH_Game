@@ -63,6 +63,11 @@ animations = [ {
 "name": "ATTACK_STANDING",
 "speed": 4.0
 }, {
+"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "SPRINT",
+"speed": 7.0
+}, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "HURT",
@@ -77,11 +82,6 @@ animations = [ {
 "loop": true,
 "name": "FINISCHER_MOVE",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 19 ), ExtResource( 12 ), ExtResource( 20 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "SPRINT",
-"speed": 7.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 42 ), ExtResource( 29 ), ExtResource( 39 ), ExtResource( 36 ) ],
 "loop": false,
@@ -110,6 +110,7 @@ height = 51.6618
 
 [node name="Enemy" type="RigidBody2D"]
 mode = 2
+mass = 5.0
 physics_material_override = SubResource( 1 )
 gravity_scale = 3.0
 contacts_reported = 3
@@ -120,6 +121,7 @@ position = Vector2( 0, -40 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "IDLE"
+frame = 4
 playing = true
 __meta__ = {
 "_edit_group_": true
