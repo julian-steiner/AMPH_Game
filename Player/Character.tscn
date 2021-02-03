@@ -68,35 +68,15 @@ friction = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "IDLE",
-"speed": 3.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "WALK",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 59 ), ExtResource( 58 ), ExtResource( 60 ) ],
 "loop": false,
 "name": "THROW",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 47 ) ],
-"loop": false,
-"name": "HURT",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 39 ), ExtResource( 41 ), ExtResource( 40 ), ExtResource( 42 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 25 ), ExtResource( 43 ) ],
 "loop": true,
 "name": "ATTACK_SPRINTING",
 "speed": 7.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 14 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "ATTACK_STANDING",
-"speed": 6.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
@@ -108,25 +88,45 @@ animations = [ {
 "name": "JUMP_BEGIN",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 4 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "SPRINT",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 32 ), ExtResource( 31 ), ExtResource( 36 ), ExtResource( 35 ), ExtResource( 33 ), ExtResource( 34 ) ],
 "loop": true,
 "name": "ATTACK_MOVING",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "JUMP_END",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 14 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "ATTACK_STANDING",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 4 ), ExtResource( 18 ), ExtResource( 6 ), ExtResource( 20 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "SPRINT",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 56 ), ExtResource( 50 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 57 ), ExtResource( 53 ) ],
 "loop": false,
 "name": "DEATH",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 45 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 47 ) ],
 "loop": false,
-"name": "JUMP_END",
+"name": "HURT",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "WALK",
+"speed": 5.0
 } ]
 
 [sub_resource type="RayShape2D" id=3]

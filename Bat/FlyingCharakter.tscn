@@ -96,7 +96,6 @@ position = Vector2( 0.833029, 1.36032 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 1 )
 animation = "Fly"
-frame = 7
 speed_scale = 3.0
 playing = true
 

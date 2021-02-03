@@ -22,6 +22,9 @@ var c_position = 0;
 var key = 0;
 var key_show = 100;
 var label_show = load('res://Bat//GainedKey.tscn').instance();
+var zero_key = false;
+var zero_key_show = 100;
+var zero_key_label = load('res://Bat//ZeroGainedKey.tscn').instance();
 
 func _ready():
 	$Sounds/Click_Sound.play();
@@ -70,15 +73,26 @@ func _integrate_forces(state):
 		if hp_stat > hp:
 			damage = true
 	hp_stat = hp
-
+	print(key)
 	if key == 1:
 		if key_show > 0:
 			add_child(label_show)
 			key_show -= 1
 		elif key_show == 0:
-			print("delete")
 			label_show.queue_free()
 			key_show -= 1
+
+	if zero_key:
+		if zero_key_show == -1:
+			zero_key_show = 100
+			zero_key_label = load('res://Bat//ZeroGainedKey.tscn').instance()
+		if zero_key_show > 0:
+			add_child(zero_key_label)
+			zero_key_show -= 1
+		elif zero_key_show == 0:
+			zero_key_label.queue_free()
+			zero_key_show -= 1
+			zero_key = false
 
 func _animation_handling(velocity, on_floor):
 	if hp <= 0:
