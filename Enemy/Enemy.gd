@@ -49,6 +49,7 @@ func handle_animations(var velocity, var priority):
 		
 	if hp < hp_p and not dying:
 		animation_counter = 0;
+		$Sounds/HurtSound.play();
 		$AnimatedSprite.play("HURT");
 		animation_priority = 4;
 				
