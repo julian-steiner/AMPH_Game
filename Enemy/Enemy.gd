@@ -22,7 +22,6 @@ var sword = 0;
 var attacking = false;
 var dying = false;
 
-var keyd = false;
 var first_loading = true;
 
 var hp = 40;
@@ -47,9 +46,6 @@ func handle_animations(var velocity, var priority):
 		$AnimatedSprite.play("DEATH");
 		dying = true;
 		animation_priority = 5;
-		if self.name == "KeyEnemy":
-			keyd = true
-			
 		
 	if hp < hp_p and not dying:
 		animation_counter = 0;
@@ -148,7 +144,6 @@ func _integrate_forces(state):
 	if first_loading:
 		add_child(load('res://Enemy//Anti_underschluepfer.tscn').instance());
 		first_loading = false
-		print(first_loading)
 	
 	cooldown = max(0, cooldown - step)
 	
@@ -156,11 +151,6 @@ func _integrate_forces(state):
 		velocity = Vector2(0, 0)
 	
 	state.linear_velocity = velocity;
-
-func _on_Area2D_body_entered(body):
-	if keyd and body is FlyingCharakter:
-		body.key += 1
-		keyd = false
 
 func _on_Range_body_entered(body):
 	if body is Character:

@@ -73,7 +73,7 @@ func _integrate_forces(state):
 		if hp_stat > hp:
 			damage = true
 	hp_stat = hp
-	print(key)
+
 	if key == 1:
 		if key_show > 0:
 			add_child(label_show)

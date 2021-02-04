@@ -42,7 +42,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -55,7 +55,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 radius = 128.0
 
 [node name="Level_4" type="Node2D"]
@@ -1892,15 +1892,15 @@ position = Vector2( 36.7454, -28.4033 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Cage"]
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "here"
 
 [node name="Area2D" type="Area2D" parent="Cage"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cage/Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="Cage/Area2D" to="Cage" method="_on_Area2D_body_entered"]

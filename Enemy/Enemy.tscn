@@ -73,11 +73,6 @@ animations = [ {
 "name": "HURT",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "WALK",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 46 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 40 ), ExtResource( 43 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 41 ) ],
 "loop": true,
 "name": "FINISCHER_MOVE",
@@ -87,6 +82,11 @@ animations = [ {
 "loop": false,
 "name": "DEATH",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 22 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "WALK",
+"speed": 5.0
 } ]
 
 [sub_resource type="RayShape2D" id=3]
@@ -121,7 +121,7 @@ position = Vector2( 0, -40 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "IDLE"
-frame = 4
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true
