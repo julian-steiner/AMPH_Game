@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/UI/Sound/click_sound_1.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/UI/Buttons/Menu_button_normal.png" type="Texture" id=2]
+
+[node name="Menü Button" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+margin_left = 951.0
+margin_top = 728.0
+margin_right = 1263.0
+margin_bottom = 871.0
+icon = ExtResource( 2 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )

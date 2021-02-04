@@ -19,7 +19,7 @@ var headnut_copy = 0;
 var direction = -1;
 var c_position = 0;
 
-var key = 0;
+var key = 1;
 var key_show = 100;
 var label_show = load('res://Bat//GainedKey.tscn').instance();
 var zero_key = false;
