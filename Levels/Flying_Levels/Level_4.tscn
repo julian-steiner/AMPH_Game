@@ -323,7 +323,7 @@ z_index = -1
 texture = ExtResource( 8 )
 
 [node name="FlyingCharakter" parent="." instance=ExtResource( 3 )]
-position = Vector2( -694.307, 8665.21 )
+position = Vector2( -4064, 32 )
 
 [node name="Camera2D" type="Camera2D" parent="FlyingCharakter"]
 current = true
@@ -1892,7 +1892,7 @@ position = Vector2( 36.7454, -28.4033 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 6
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Cage"]
