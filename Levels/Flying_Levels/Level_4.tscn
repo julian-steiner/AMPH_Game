@@ -1892,7 +1892,7 @@ position = Vector2( 36.7454, -28.4033 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 3
+frame = 9
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Cage"]

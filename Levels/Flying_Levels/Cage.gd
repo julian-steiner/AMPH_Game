@@ -6,5 +6,6 @@ func _on_Area2D_body_entered(body):
 		if body.key > 0:
 			$AnimatedSprite2.play("away")
 			get_tree().paused = true
+			
 		else:
 			body.zero_key = true

@@ -69,8 +69,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 944.351, 543.18 )
-scale = Vector2( 1.00552, 1 )
+position = Vector2( 947.544, 543.601 )
 z_index = -1
 texture = ExtResource( 6 )
 
@@ -169,7 +168,6 @@ position = Vector2( 1350.28, 199.071 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "IDLE"
-frame = 3
 playing = true
 __meta__ = {
 "_editor_description_": "."
