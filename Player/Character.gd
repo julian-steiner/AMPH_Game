@@ -53,6 +53,7 @@ func handle_animations(var velocity, var priority):
 			direction = -1;
 		
 	if hp <= 0 and not dying:
+		$Sounds/Hurt_Sound.play();
 		$AnimatedSprite.offset.y = -10;
 		$AnimatedSprite.play("DEATH");
 		dying = true;

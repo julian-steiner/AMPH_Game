@@ -57,3 +57,14 @@ func _on_Reset_Button_pressed():
 	level_assassin = 1
 	level_bat = 1
 	save_data()
+
+
+func _on_Tutorial_Button_pressed():
+	if c_character == "assassin":
+		save_data();
+		get_tree().change_scene("res://Tutorial/Character/Tutorial_1.tscn")
+	elif c_character == "bat":
+		pass
+#		save_data();
+#		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(level_bat) + ".tscn")
+
