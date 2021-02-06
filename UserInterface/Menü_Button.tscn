@@ -5,13 +5,12 @@
 [ext_resource path="res://UserInterface/Menü_Button.gd" type="Script" id=3]
 
 [node name="Menue_Button" type="Node2D"]
+position = Vector2( -138, 8832 )
 script = ExtResource( 3 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = -138.0
-margin_top = 8832.0
-margin_right = 12.0
-margin_bottom = 8900.75
+margin_right = 150.0
+margin_bottom = 68.75
 icon = ExtResource( 2 )
 flat = true
 expand_icon = true
@@ -21,5 +20,4 @@ __meta__ = {
 
 [node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 1 )
-attenuation = 1.0
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

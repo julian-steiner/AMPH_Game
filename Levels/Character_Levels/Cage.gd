@@ -10,5 +10,8 @@ func _on_Area2D_body_entered(body):
 		$AnimatedSprite3.play("hier")
 		body.moving = false
 		get_parent().add_child(button)
+		print("after")
+		button.transform[2] = Vector2(4295.07 + 300, -3137.31 + 200)
+		print("geil")
 		if get_parent().get_node("Enemys/Enemy23") != null:
 			get_parent().get_node("Enemys/Enemy23").moving = false
