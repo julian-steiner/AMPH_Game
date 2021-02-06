@@ -6,4 +6,5 @@ func _on_HitBox_body_entered(body):
 		if body.name == "KeyEnemy" and body.hp <= 0:
 			get_parent().key += 1
 			get_parent().keyd = true
+			get_parent().show = 100
 			

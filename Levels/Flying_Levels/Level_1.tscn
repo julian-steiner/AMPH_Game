@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Trap/SpinningTrap/SpinningTrap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bat/FlyingCharakter.tscn" type="PackedScene" id=2]
@@ -12,9 +12,13 @@
 [ext_resource path="res://assets/tilemaps/FireTiles/Fire_5_16x16.png" type="Texture" id=10]
 [ext_resource path="res://Levels/Flying_Levels/Level_1.gd" type="Script" id=11]
 [ext_resource path="res://assets/background/Lava_background.png" type="Texture" id=12]
+[ext_resource path="res://Levels/Flying_Levels/RomerBendeich.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 700, 320 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 310.029
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource( 11 )
@@ -709,7 +713,6 @@ position = Vector2( -384.032, 0.364014 )
 
 [node name="SpinningTrapF" parent="SpinningTraps/SpinningTraps_MainWay/SpinningTrap5/SpinningTrapF" instance=ExtResource( 1 )]
 position = Vector2( 3875.14, -606.205 )
-z_index = -1
 
 [node name="SpinningTrapF" parent="SpinningTraps/SpinningTraps_MainWay/SpinningTrap5/SpinningTrapF/SpinningTrapF" instance=ExtResource( 1 )]
 position = Vector2( -3362.94, -6242.25 )
@@ -743,7 +746,6 @@ position = Vector2( 384.005, 0 )
 
 [node name="SpinningTrapT" parent="SpinningTraps/SpinningTraps_MainWay/SpinningTrap6/SpinningTrapT" instance=ExtResource( 1 )]
 position = Vector2( 3495.37, -606.593 )
-z_index = -1
 
 [node name="SpinningTrapT" parent="SpinningTraps/SpinningTraps_MainWay/SpinningTrap6/SpinningTrapT/SpinningTrapT" instance=ExtResource( 1 )]
 position = Vector2( -3366.35, -6241.18 )
@@ -965,4 +967,14 @@ position = Vector2( -434.336, -19618.1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -11.2246, -184.084 )
 shape = SubResource( 1 )
+
+[node name="RomerBendeich" type="Node2D" parent="."]
+position = Vector2( 2129.83, -9055.95 )
+script = ExtResource( 13 )
+
+[node name="Romerbendeich" type="Area2D" parent="RomerBendeich"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RomerBendeich/Romerbendeich"]
+shape = SubResource( 2 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="RomerBendeich/Romerbendeich" to="RomerBendeich" method="_on_Romerbendeich_body_entered"]

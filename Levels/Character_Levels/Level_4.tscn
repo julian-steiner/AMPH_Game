@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/Character_Levels/Level_4.gd" type="Script" id=1]
 [ext_resource path="res://Player/Character.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://assets/cage/cage.png" type="Texture" id=7]
 [ext_resource path="res://assets/Barbarian/Idle/idle4.png" type="Texture" id=8]
 [ext_resource path="res://assets/tilemaps/FireTiles/Fire_5_16x16.png" type="Texture" id=9]
+[ext_resource path="res://assets/tilemaps/FireTiles/Fire_10_16x16.png" type="Texture" id=10]
+[ext_resource path="res://assets/tilemaps/FireTiles/Fire_4_16x16.png" type="Texture" id=11]
+[ext_resource path="res://Levels/Character_Levels/EulerischeIdentität.gd" type="Script" id=12]
+[ext_resource path="res://assets/background/Lava_background.png" type="Texture" id=13]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 130.848
@@ -52,6 +56,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=5]
+radius = 344.819
+
 [node name="Level_4" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -63,10 +70,18 @@ tile_data = PoolIntArray( -3604432, 4, 0, -3604431, 4, 0, -3604430, 4, 0, -36044
 [node name="Character" type="Node2D" parent="."]
 
 [node name="Character" parent="Character" instance=ExtResource( 2 )]
-position = Vector2( 4451.3, -2894.24 )
+position = Vector2( 60.8963, 76.2714 )
 
 [node name="Camera2D" type="Camera2D" parent="Character/Character"]
 current = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Character/Character"]
+offset = Vector2( 1000, 600 )
+transform = Transform2D( 1, 0, 0, 1, 1000, 600 )
+
+[node name="Sprite" type="Sprite" parent="Character/Character/ParallaxBackground"]
+scale = Vector2( 2.5, 2 )
+texture = ExtResource( 13 )
 
 [node name="Enemys" type="Node" parent="."]
 
@@ -205,7 +220,7 @@ texture = ExtResource( 9 )
 [node name="Sprite5" type="Sprite" parent="FakeWalls"]
 position = Vector2( 3296, -1312 )
 z_index = -1
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 
 [node name="Sprite6" type="Sprite" parent="FakeWalls"]
 position = Vector2( 3296, -1376 )
@@ -240,7 +255,7 @@ texture = ExtResource( 9 )
 [node name="Sprite12" type="Sprite" parent="FakeWalls"]
 position = Vector2( 3104, -1312 )
 z_index = -1
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 
 [node name="Sprite13" type="Sprite" parent="FakeWalls"]
 position = Vector2( 3040, -1312 )
@@ -256,4 +271,15 @@ texture = ExtResource( 9 )
 position = Vector2( 3040, -1376 )
 z_index = -1
 texture = ExtResource( 9 )
+
+[node name="EulerischeIdentität" type="Node2D" parent="."]
+position = Vector2( 2888.76, -1309.1 )
+script = ExtResource( 12 )
+
+[node name="Area2D" type="Area2D" parent="EulerischeIdentität"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EulerischeIdentität/Area2D"]
+position = Vector2( -136.346, 2.9967 )
+shape = SubResource( 5 )
 [connection signal="body_entered" from="Cage/Area2D" to="Cage" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="EulerischeIdentität/Area2D" to="EulerischeIdentität" method="_on_Area2D_body_entered"]

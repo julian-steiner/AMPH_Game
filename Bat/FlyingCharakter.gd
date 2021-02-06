@@ -20,10 +20,14 @@ var direction = -1;
 var c_position = 0;
 
 var key = 0;
+
 var keyd = false;
-var key_show = 100;
 var zero_key = false;
-var zero_key_show = 100;
+var RomerBendeich = false;
+var WRO = false;
+var SalatBizeps = false;
+
+var show = 100;
 
 var moving = true;
 
@@ -78,17 +82,39 @@ func _integrate_forces(state):
 
 		if keyd:
 			$AnimatedSprite2.play("GainedKey")
-			key_show -= 1
-			if key_show <= 0:
+			show -= 1
+			if show <= 0:
 				$AnimatedSprite2.play("Standart")
 				keyd = false
 
 		if zero_key:
 			$AnimatedSprite2.play("ZeroKey")
-			zero_key_show -= 1
-			if zero_key_show == 0:
+			show -= 1
+			if show == 0:
 				$AnimatedSprite2.play("Standart")
 				zero_key = false
+
+		if RomerBendeich:
+			$AnimatedSprite2.scale
+			$AnimatedSprite2.play("RomerBendeich")
+			show -= 1
+			if show <= 0:
+				$AnimatedSprite2.play("Standart")
+				RomerBendeich = false
+
+		if WRO:
+			$AnimatedSprite2.play("WRO")
+			show -= 1
+			if show <= 0:
+				$AnimatedSprite2.play("Standart")
+				WRO = false
+
+		if SalatBizeps:
+			$AnimatedSprite2.play("SalatBizeps")
+			show -= 1
+			if show <= 0:
+				$AnimatedSprite2.play("Standart")
+				SalatBizeps = false
 
 	else:
 		velocity = Vector2(0, 0)

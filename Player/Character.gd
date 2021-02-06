@@ -26,6 +26,8 @@ var thrown = false;
 var knives = 1;
 var teleporting = false;
 
+var euler = false;
+var euler_show = 100;
 var moving = true;
 
 func handle_animations(var velocity, var priority):
@@ -233,6 +235,13 @@ func _integrate_forces(state):
 				
 			state.linear_velocity = velocity;
 			
+			if euler:
+				$AnimatedSprite2.play("EulerischeIdentität")
+				euler_show -= 1
+				if euler_show <= 0:
+					$AnimatedSprite2.play("Standart")
+					euler = false
+
 		else:
 			state.transform[2] = c_position;
 			state.linear_velocity = Vector2(0, 0);
@@ -241,3 +250,4 @@ func _integrate_forces(state):
 		velocity = Vector2(0, 0)
 		set_sleeping(true)
 		$AnimatedSprite.stop()
+		$AnimatedSprite2.play("FinnishedGame")

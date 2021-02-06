@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Levels/Flying_Levels/Level_4.gd" type="Script" id=1]
 [ext_resource path="res://Türen/Door.tscn" type="PackedScene" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://assets/Rogue/Idle/idle16.png" type="Texture" id=28]
 [ext_resource path="res://assets/cage/cage.png" type="Texture" id=29]
 [ext_resource path="res://Levels/Flying_Levels/Cage.gd" type="Script" id=30]
+[ext_resource path="res://Levels/Flying_Levels/SalatBizeps.gd" type="Script" id=31]
+[ext_resource path="res://Levels/Flying_Levels/WRO.gd" type="Script" id=32]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 74, 64 )
@@ -57,6 +59,12 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 128.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 160.334
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 357.195
 
 [node name="Level_4" type="Node2D"]
 script = ExtResource( 1 )
@@ -1892,7 +1900,7 @@ position = Vector2( 36.7454, -28.4033 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Cage"]
@@ -1903,4 +1911,26 @@ animation = "here"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cage/Area2D"]
 shape = SubResource( 4 )
+
+[node name="HidenPlace" type="Node2D" parent="."]
+
+[node name="SalatBizeps" type="Node2D" parent="HidenPlace"]
+position = Vector2( 672, 11744 )
+script = ExtResource( 31 )
+
+[node name="SalatBizeps" type="Area2D" parent="HidenPlace/SalatBizeps"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HidenPlace/SalatBizeps/SalatBizeps"]
+shape = SubResource( 5 )
+
+[node name="WRO" type="Node2D" parent="HidenPlace"]
+position = Vector2( 2336, 9184 )
+script = ExtResource( 32 )
+
+[node name="WRO" type="Area2D" parent="HidenPlace/WRO"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HidenPlace/WRO/WRO"]
+shape = SubResource( 6 )
 [connection signal="body_entered" from="Cage/Area2D" to="Cage" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="HidenPlace/SalatBizeps/SalatBizeps" to="HidenPlace/SalatBizeps" method="_on_SalatBizeps_body_entered"]
+[connection signal="body_entered" from="HidenPlace/WRO/WRO" to="HidenPlace/WRO" method="_on_WRO_body_entered"]
