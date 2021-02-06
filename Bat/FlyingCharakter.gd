@@ -26,6 +26,7 @@ var zero_key = false;
 var RomerBendeich = false;
 var WRO = false;
 var SalatBizeps = false;
+var finnishedGame = false;
 
 var show = 100;
 
@@ -119,7 +120,8 @@ func _integrate_forces(state):
 	else:
 		velocity = Vector2(0, 0)
 		set_sleeping(true)
-		$AnimatedSprite2.play("FinnishedGame")
+		if finnishedGame:
+			$AnimatedSprite2.play("FinnishedGame")
 		$AnimatedSprite.stop()
 
 func _animation_handling(velocity, on_floor):

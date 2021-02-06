@@ -9,6 +9,7 @@ func _on_Area2D_body_entered(body):
 			$AnimatedSprite2.play("away")
 			$AnimatedSprite.stop()
 			body.moving = false
+			body.finnishedGame = true
 			get_parent().add_child(button)
 			if get_parent().get_node("Enemys/Enemy23") != null:
 				get_parent().get_node("Enemys/Enemy23").moving = false

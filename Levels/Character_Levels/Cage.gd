@@ -9,6 +9,7 @@ func _on_Area2D_body_entered(body):
 		$AnimatedSprite2.play("hier")
 		$AnimatedSprite3.play("hier")
 		body.moving = false
+		body.finnishedGame = true
 		get_parent().add_child(button)
 		print("after")
 		button.transform[2] = Vector2(4295.07 + 300, -3137.31 + 200)

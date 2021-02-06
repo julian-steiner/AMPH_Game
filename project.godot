@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Bat/FlyingCharakter.gd"
 }, {
+"base": "Node2D",
+"class": "Kniving",
+"language": "GDScript",
+"path": "res://Tutorial/Character/Kniving.gd"
+}, {
 "base": "StaticBody2D",
 "class": "MedKit",
 "language": "GDScript",
@@ -65,6 +70,16 @@ _global_script_classes=[ {
 "path": "res://Türen/Türe.gd"
 }, {
 "base": "Node2D",
+"class": "Tuere_1",
+"language": "GDScript",
+"path": "res://Tutorial/Character/Tuere_1.gd"
+}, {
+"base": "Node2D",
+"class": "Tuere_2",
+"language": "GDScript",
+"path": "res://Tutorial/Character/Tuere_2.gd"
+}, {
+"base": "Node2D",
 "class": "WRO",
 "language": "GDScript",
 "path": "res://Levels/Flying_Levels/WRO.gd"
@@ -84,6 +99,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/Knife.gd"
 }, {
+"base": "Node2D",
+"class": "start",
+"language": "GDScript",
+"path": "res://Tutorial/Character/Start.gd"
+}, {
 "base": "Area2D",
 "class": "sword",
 "language": "GDScript",
@@ -96,15 +116,19 @@ _global_script_class_icons={
 "Enemy": "",
 "EulerischeIdentitaet": "",
 "FlyingCharakter": "",
+"Kniving": "",
 "MedKit": "",
 "RomerBendeich": "",
 "SalatBizeps": "",
 "SpinningTrap": "",
 "Tuere": "",
+"Tuere_1": "",
+"Tuere_2": "",
 "WRO": "",
 "cach_game": "",
 "chest": "",
 "knife_flying": "",
+"start": "",
 "sword": ""
 }
 

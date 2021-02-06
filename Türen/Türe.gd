@@ -1,7 +1,7 @@
 class_name Tuere
 extends StaticBody2D
 
-const locations = {"Door1": Vector2(-928.004, 1791.935), "Tuere": Vector2(-1190.284, 1471.843), "Tuere2": Vector2(-1369.94, 319.83), "Tuere3": Vector2(-1689.82, -256.035), "Tuere4": Vector2(117.753, 535.582), "Tuere5": Vector2(117.753, 535.582), "Tuere6": Vector2(117.753, 535.582)};
+const locations = {"Door1": Vector2(-928.004, 1791.935), "Tuere": Vector2(-1190.284, 1471.843), "Tuere2": Vector2(-1369.94, 319.83), "Tuere3": Vector2(-1689.82, -256.035), "Tuere4": Vector2(117.753, 535.582), "Tuere5": Vector2(117.753, 535.582), "Tuere6": Vector2(117.753, 535.582), "TutorialDoor": Vector2(224, 576)};
 #{Door1 zu Tuere3, Tuere zu Tuere2, Tuere2 zu Tuere, Tuere3 zu Door1, Tuere4 & Tuere5 & Tuere6 zu start}
 
 var body_current = 0;
@@ -33,8 +33,10 @@ func execute_teleport():
 		get_tree().change_scene("res://Levels//Character_Levels//Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 	elif self.name == "endBatDoor":
 		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
+	elif self.name == "endTutorialDoor":
+		get_tree().change_scene("res://Tutorial//Character//Tutorial_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 	elif self.name == "falseDoor":
-		cancel_teleport()
+		pass
 	else:
 		body_current.teleport(locations.get(self.name))
 		$AnimatedSprite.play("DoorClosed")
