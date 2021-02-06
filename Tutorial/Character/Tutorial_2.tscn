@@ -41,7 +41,7 @@ current = true
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Character/Character"]
 position = Vector2( 0, -215 )
 frames = SubResource( 1 )
-animation = "Standart"
+animation = "Kniving"
 
 [node name="All_Doors" type="Node" parent="."]
 

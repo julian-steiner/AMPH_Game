@@ -896,7 +896,7 @@ z_index = -1
 texture = ExtResource( 7 )
 
 [node name="FlyingCharakter" parent="." instance=ExtResource( 2 )]
-position = Vector2( 735.528, -4702.65 )
+position = Vector2( 840.35, 875.064 )
 
 [node name="Camera2D" type="Camera2D" parent="FlyingCharakter"]
 current = true

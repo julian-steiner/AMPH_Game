@@ -33,6 +33,8 @@ var start = false;
 var Tuere_1 = false;
 var Tuere_2 = false;
 var Kniving = false;
+var Shoot = false;
+var Collect = false;
 
 var show = 100;
 var moving = true;
@@ -269,6 +271,22 @@ func _integrate_forces(state):
 				show -= 1
 				if show == 0:
 					Kniving = false
+					$AnimatedSprite3.play("Standart")
+
+			if Shoot:
+				$AnimatedSprite3.play("Shoot")
+				show -= 1
+				if show == 0:
+					Shoot = false
+					Collect = true
+					show = 100
+					$AnimatedSprite3.play("Standart")
+
+			if Collect:
+				$AnimatedSprite3.play("Collect")
+				show -= 1
+				if show == 0:
+					Collect = false
 					$AnimatedSprite3.play("Standart")
 
 		else:

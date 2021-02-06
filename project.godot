@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Levels/Flying_Levels/SalatBizeps.gd"
 }, {
+"base": "Node2D",
+"class": "Shoot",
+"language": "GDScript",
+"path": "res://Tutorial/Character/Shoot.gd"
+}, {
 "base": "StaticBody2D",
 "class": "SpinningTrap",
 "language": "GDScript",
@@ -120,6 +125,7 @@ _global_script_class_icons={
 "MedKit": "",
 "RomerBendeich": "",
 "SalatBizeps": "",
+"Shoot": "",
 "SpinningTrap": "",
 "Tuere": "",
 "Tuere_1": "",
