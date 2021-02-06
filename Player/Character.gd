@@ -26,6 +26,8 @@ var thrown = false;
 var knives = 1;
 var teleporting = false;
 
+var moving = true;
+
 func handle_animations(var velocity, var priority):
 	#priorities: 1 = JUMP_BEGIN, 2 = JUMP_END, 3 = ATTACK_STANDING, 4 = HURT, 5 = DEATH, 6 = DEATH, 7 = IN_AIR, 8 = THROW
 	#CHANGE THE ORIENTATION OF THE CHARACTER ACCORDING TO THE DIRECTION IT'S MOVING
@@ -168,69 +170,74 @@ func _ready():
 	$Sounds/Click_Sound.play();
 	
 func _integrate_forces(state):
-	if not teleporting:
-		step = state.get_step();
-		c_position = state.transform[2];
-		var velocity = state.get_linear_velocity();
-		var key_pressed = false;
-		on_floor = false;
-		$HealthBar.value = hp;
+	var velocity = state.get_linear_velocity();
+	if moving:
+		if not teleporting:
+			step = state.get_step();
+			c_position = state.transform[2];
+			var key_pressed = false;
+			on_floor = false;
+			$HealthBar.value = hp;
 
-		cooldown = max(cooldown - step, 0);
-		cooldown2 = max(cooldown2 - step, 0);
-		
-		#check if the player touches the ground
-		for i in range(state.get_contact_count()):
-			var contact_normal = state.get_contact_local_normal(i)
-			if contact_normal.dot(Vector2(0, -1)) > 0.5:
-				on_floor = true
-		
-		#check if the player just hit the ground
-		if(on_floor == true and on_floor_previous == false and not dying):
-			#set the animationPriority to jump_end
-			animation_priority = 2;
-		on_floor_previous = on_floor;
-		
-		if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3 and knives > 0 and not dying):
-				animation_priority = 8;
-				cooldown2 = 1;
-		
-		if(on_floor and not dying):
-			if(Input.is_mouse_button_pressed(1) and cooldown == 0 and animation_priority != 4 and animation_priority != 8):
-				#set the animation_priority to attack
-				animation_priority = 3;
-				cooldown = 1;
+			cooldown = max(cooldown - step, 0);
+			cooldown2 = max(cooldown2 - step, 0);
 			
-			#basic movements
-			if(Input.is_action_pressed("ui_left")):
-				velocity.x = max(velocity.x - acceleration * step, -sprint_velocity);
-				key_pressed = true;
-			if(Input.is_action_pressed("ui_right")):
-				velocity.x = min(velocity.x + acceleration * step, sprint_velocity);
-				key_pressed = true;
-			if(Input.is_action_just_pressed("ui_up")):
-				velocity.y = -jump_speed
-				key_pressed = true;
-				# set the animation priority to jump_begin
-				animation_priority = 1;
+			#check if the player touches the ground
+			for i in range(state.get_contact_count()):
+				var contact_normal = state.get_contact_local_normal(i)
+				if contact_normal.dot(Vector2(0, -1)) > 0.5:
+					on_floor = true
 			
-			if(not key_pressed):
-				var speed = abs(velocity.x);
-				var direction = sign(velocity.x)
-				speed = max(speed - acceleration * step, 0)
-				velocity.x = speed * direction;
+			#check if the player just hit the ground
+			if(on_floor == true and on_floor_previous == false and not dying):
+				#set the animationPriority to jump_end
+				animation_priority = 2;
+			on_floor_previous = on_floor;
+			
+			if(Input.is_mouse_button_pressed(2) and cooldown2 == 0 and animation_priority != 4 and animation_priority != 3 and knives > 0 and not dying):
+					animation_priority = 8;
+					cooldown2 = 1;
+			
+			if(on_floor and not dying):
+				if(Input.is_mouse_button_pressed(1) and cooldown == 0 and animation_priority != 4 and animation_priority != 8):
+					#set the animation_priority to attack
+					animation_priority = 3;
+					cooldown = 1;
+				
+				#basic movements
+				if(Input.is_action_pressed("ui_left")):
+					velocity.x = max(velocity.x - acceleration * step, -sprint_velocity);
+					key_pressed = true;
+				if(Input.is_action_pressed("ui_right")):
+					velocity.x = min(velocity.x + acceleration * step, sprint_velocity);
+					key_pressed = true;
+				if(Input.is_action_just_pressed("ui_up")):
+					velocity.y = -jump_speed
+					key_pressed = true;
+					# set the animation priority to jump_begin
+					animation_priority = 1;
+				
+				if(not key_pressed):
+					var speed = abs(velocity.x);
+					var direction = sign(velocity.x)
+					speed = max(speed - acceleration * step, 0)
+					velocity.x = speed * direction;
+			else:
+				if (animation_priority == 0):
+					animation_priority = 6
+			
+			handle_animations(velocity, 0);
+			
+			if dying:
+				velocity = Vector2(0, 0);
+				
+			state.linear_velocity = velocity;
+			
 		else:
-			if (animation_priority == 0):
-				animation_priority = 6
-		
-		handle_animations(velocity, 0);
-		
-		if dying:
-			velocity = Vector2(0, 0);
-			
-		state.linear_velocity = velocity;
-		
+			state.transform[2] = c_position;
+			state.linear_velocity = Vector2(0, 0);
+			teleporting = false;
 	else:
-		state.transform[2] = c_position;
-		state.linear_velocity = Vector2(0, 0);
-		teleporting = false;
+		velocity = Vector2(0, 0)
+		set_sleeping(true)
+		$AnimatedSprite.stop()
