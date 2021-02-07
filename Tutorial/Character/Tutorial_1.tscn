@@ -9,17 +9,15 @@
 [ext_resource path="res://Türen/Door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Tutorial/Character/Tuere_2.gd" type="Script" id=8]
 [ext_resource path="res://assets/Schriften/Tuere_2.png" type="Texture" id=9]
-
-[sub_resource type="GDScript" id=3]
-script/source = "class_name Tutorial_1
-extends Node2D
-
-var kountdown = 100;
-
-"
+[ext_resource path="res://Tutorial/Character/Tutorial_1.gd" type="Script" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Tuere_1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Tuere_2",
@@ -34,24 +32,19 @@ animations = [ {
 "loop": true,
 "name": "Bewegung",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "Tuere_1",
-"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 64 )
 
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 64 )
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 32, 64 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 32, 64 )
-
 [node name="Tutorial_1" type="Node2D"]
-script = SubResource( 3 )
+script = ExtResource( 10 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -67,9 +60,9 @@ position = Vector2( 19.5402, 350.344 )
 current = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Character/Character"]
-position = Vector2( 0, -215 )
+position = Vector2( 0, -190 )
 frames = SubResource( 1 )
-animation = "Standart"
+animation = "Tuere_2"
 
 [node name="Start" type="Node2D" parent="."]
 script = ExtResource( 4 )
@@ -100,7 +93,7 @@ script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tuere/Tuere_1/Tuere_1"]
 position = Vector2( 360.31, 321.024 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Tuere_2" type="Node2D" parent="Tuere"]
 script = ExtResource( 8 )
@@ -109,7 +102,7 @@ script = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tuere/Tuere_2/Tuere_2"]
 position = Vector2( 224, 576 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 [connection signal="body_entered" from="Start/Start" to="Start" method="_on_Start_body_entered"]
 [connection signal="body_entered" from="Tuere/Tuere_1/Tuere_1" to="Tuere/Tuere_1" method="_on_Tuere_1_body_entered"]
 [connection signal="body_entered" from="Tuere/Tuere_2/Tuere_2" to="Tuere/Tuere_2" method="_on_Tuere_2_body_entered"]

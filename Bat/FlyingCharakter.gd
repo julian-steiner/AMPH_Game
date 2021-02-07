@@ -78,6 +78,7 @@ func _integrate_forces(state):
 		if hp_stat != hp:
 			priority = true
 			if hp_stat > hp:
+				$Sounds/Hurt_Sound.play();
 				damage = true
 		hp_stat = hp
 
@@ -126,7 +127,7 @@ func _integrate_forces(state):
 
 func _animation_handling(velocity, on_floor):
 	if hp <= 0:
-		$AnimatedSprite.play("Death")
+		$Sounds/Hurt_Sound.play();
 		$HealthBar.value = hp
 		counter += step
 		if counter >= 0.5:
