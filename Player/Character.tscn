@@ -129,6 +129,11 @@ animations = [ {
 "loop": true,
 "name": "IN_AIR",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 47 ) ],
+"loop": false,
+"name": "HURT",
+"speed": 10.0
 } ]
 
 [sub_resource type="RayShape2D" id=3]
