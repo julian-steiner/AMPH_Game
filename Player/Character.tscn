@@ -70,11 +70,6 @@ friction = 0.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "IDLE",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": false,
 "name": "JUMP_END",
@@ -130,10 +125,10 @@ animations = [ {
 "name": "IN_AIR",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 45 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 47 ) ],
-"loop": false,
-"name": "HURT",
-"speed": 10.0
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "IDLE",
+"speed": 3.0
 } ]
 
 [sub_resource type="RayShape2D" id=3]
@@ -155,14 +150,14 @@ animations = [ {
 "name": "Standart",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 64 ) ],
-"loop": true,
-"name": "EulerischeIdentität",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 63 ) ],
 "loop": true,
 "name": "FinnishedGame",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 64 ) ],
+"loop": true,
+"name": "EulerischeIdentität",
 "speed": 5.0
 } ]
 
@@ -180,7 +175,7 @@ frames = SubResource( 2 )
 animation = "THROW"
 frame = 2
 playing = true
-offset = Vector2( 20, -29.247 )
+offset = Vector2( 20, -28 )
 
 [node name="RAY_COLLISION" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )

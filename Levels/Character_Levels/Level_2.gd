@@ -3,6 +3,7 @@ extends Node2D
 var level_assassin = 2
 var level_bat = 0
 var c_character = 0
+var finished_stage = 0
 
 func save_data():
 	var c_file = File.new();
@@ -10,6 +11,7 @@ func save_data():
 	c_file.store_line(to_json(level_assassin))
 	c_file.store_line(to_json(level_bat))
 	c_file.store_line(to_json(c_character))
+	c_file.store_line(to_json(finished_stage))
 	c_file.close()
 	
 func load_data():
@@ -18,8 +20,9 @@ func load_data():
 	var level_assassin = int(c_file.get_line())
 	var level_bat = int(c_file.get_line())
 	var c_character = c_file.get_line().replace("\"", "");
+	var finished_stage = c_file.get_line()
 	c_file.close()
-	return {"level_assassin": level_assassin, "level_bat": level_bat, "c_character": c_character}
+	return {"level_assassin": level_assassin, "level_bat": level_bat, "c_character": c_character, "finished_stage": finished_stage}
 
 func dynamic_zooming():
 	var window_size = OS.window_size

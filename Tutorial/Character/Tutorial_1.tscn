@@ -13,6 +13,16 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Bewegung",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Standart",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "Tuere_1",
@@ -21,16 +31,6 @@ animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "Tuere_2",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "Standart",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "Bewegung",
 "speed": 5.0
 } ]
 

@@ -3,7 +3,10 @@ extends Control
 var level_assassin = 1
 var level_bat = 1
 
-var c_character = "0"
+var c_character = "assassin"
+
+# 0 = nothing, 1 = character, 2 = all
+var finished_stage = 0
 
 #func preload_levels():
 #	preload("res://Levels//Character_Levels//Level_1.tscn")
@@ -19,6 +22,7 @@ func save_data():
 	c_file.store_line(to_json(level_assassin))
 	c_file.store_line(to_json(level_bat))
 	c_file.store_line(to_json(c_character))
+	c_file.store_line(to_json(finished_stage))
 	c_file.close()
 	
 func load_data():
@@ -27,20 +31,27 @@ func load_data():
 	var level_assassin = int(c_file.get_line())
 	var level_bat = int(c_file.get_line())
 	var c_character = c_file.get_line().replace("\"", "");
+	var finished_stage = int(c_file.get_line())
 	c_file.close()
-	return {"level_assassin": level_assassin, "level_bat": level_bat, "c_character": c_character}
+	return {"level_assassin": level_assassin, "level_bat": level_bat, "c_character": c_character, "finished_stage": finished_stage}
 
 func _ready():
 #	preload_levels();
 	var data = load_data()
 	level_assassin = data.get("level_assassin")
 	level_bat = data.get("level_bat")
+	finished_stage = data.get("finished_stage")
+	if finished_stage != 1:
+		$Sprites/Bat_Lock.play("Closed")
+	if finished_stage != 0:
+		$Sprites/Character_Lock.play("Closed")
+		
 
 func _on_Start_Button_pressed():
-	if c_character == "assassin":
+	if c_character == "assassin" and finished_stage == 0:
 		save_data();
 		get_tree().change_scene("res://Levels//Character_Levels//Level_" + str(level_assassin) + ".tscn")
-	elif c_character == "bat":
+	elif c_character == "bat" and finished_stage == 1:
 		save_data();
 		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(level_bat) + ".tscn")
 
@@ -56,7 +67,9 @@ func _on_Reset_Button_pressed():
 	$Buttons/Button_Sound.play();
 	level_assassin = 1
 	level_bat = 1
+	finished_stage = 0
 	save_data()
+	get_tree().change_scene("res://UserInterface/UI.tscn")
 
 func _on_Tutorial_Button_pressed():
 	if c_character == "assassin":

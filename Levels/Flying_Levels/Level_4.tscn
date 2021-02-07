@@ -352,7 +352,7 @@ position = Vector2( -5056, 95 )
 rotation = 1.5708
 
 [node name="Spike4" parent="Spikes" instance=ExtResource( 5 )]
-position = Vector2( -4861.6, 95 )
+position = Vector2( -4862.02, 97.1022 )
 rotation = -1.5708
 
 [node name="Spike6" parent="Spikes" instance=ExtResource( 5 )]
@@ -924,7 +924,7 @@ position = Vector2( -4862, 5087 )
 rotation = -1.5708
 
 [node name="Spike156" parent="Spikes" instance=ExtResource( 5 )]
-position = Vector2( -4862, 5151 )
+position = Vector2( -4862.41, 5148.64 )
 rotation = -1.5708
 
 [node name="Spike157" parent="Spikes" instance=ExtResource( 5 )]
@@ -1312,7 +1312,7 @@ position = Vector2( -4734, 11295 )
 rotation = -1.5708
 
 [node name="Spike253" parent="Spikes" instance=ExtResource( 5 )]
-position = Vector2( -4734, 11359 )
+position = Vector2( -4733.65, 11355.1 )
 rotation = -1.5708
 
 [node name="Spike141" parent="Spikes" instance=ExtResource( 5 )]
@@ -1900,7 +1900,7 @@ position = Vector2( 36.7454, -28.4033 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Cage"]
