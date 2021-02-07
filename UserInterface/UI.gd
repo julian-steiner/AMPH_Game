@@ -53,6 +53,9 @@ func _on_Start_Button_pressed():
 	if finished_stage == -1:
 		save_data();
 		get_tree().change_scene("res://Tutorial/Character/Tutorial_1.tscn")
+	if finished_stage == 1:
+		save_data();
+		get_tree().change_scene("res://Tutorial/FlyingCharacter/Tutorial_1.tscn")
 	if c_character == "assassin" and finished_stage == 0:
 		print("Loading character level")
 		save_data();
@@ -82,7 +85,6 @@ func _on_Tutorial_Button_pressed():
 		save_data();
 		get_tree().change_scene("res://Tutorial/Character/Tutorial_1.tscn")
 	elif c_character == "bat":
-		pass
-#		save_data();
-#		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(level_bat) + ".tscn")
+		save_data();
+		get_tree().change_scene("res://Tutorial/FlyingCharacter/Tutorial_1.tscn")
 
