@@ -8,6 +8,20 @@ var body_current = 0;
 var teleporting = false;
 var timer = 0;
 
+var level_assassin = 0
+var level_bat = 0
+var c_character = "assassin"
+var finished_stage = 0
+
+func save_data():
+	var c_file = File.new();
+	c_file.open("res://game_information.save", File.WRITE)
+	c_file.store_line(to_json(level_assassin))
+	c_file.store_line(to_json(level_bat))
+	c_file.store_line(to_json(c_character))
+	c_file.store_line(to_json(finished_stage))
+	c_file.close()
+
 func _on_Area2D_body_entered(body):
 	z_index = -1;
 	if body is Character or body is FlyingCharakter:
@@ -37,6 +51,18 @@ func execute_teleport():
 		get_tree().change_scene("res://Tutorial//Character//Tutorial_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 	elif self.name == "endTutorialDoorAbsolute":
 		get_tree().change_scene("res://UserInterface/UI.tscn")
+		level_assassin = 1
+		level_bat = 1
+		c_character = "assassin"
+		finished_stage = 0
+		save_data()
+	elif self.name == "endTutorial2DoorAbsolute":
+		get_tree().change_scene("res://UserInterface/UI.tscn")
+		level_assassin = 4
+		level_bat = 1
+		c_character = "assassin"
+		finished_stage = 2
+		save_data()
 	elif self.name == "falseDoor":
 		pass
 	else:

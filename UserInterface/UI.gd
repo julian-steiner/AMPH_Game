@@ -41,14 +41,20 @@ func _ready():
 	level_assassin = data.get("level_assassin")
 	level_bat = data.get("level_bat")
 	finished_stage = data.get("finished_stage")
-	if finished_stage != 1:
+	
+	if finished_stage != 2:
 		$Sprites/Bat_Lock.play("Closed")
 	if finished_stage != 0:
 		$Sprites/Character_Lock.play("Closed")
 		
 
 func _on_Start_Button_pressed():
+	print(finished_stage, c_character)
+	if finished_stage == -1:
+		save_data();
+		get_tree().change_scene("res://Tutorial/Character/Tutorial_1.tscn")
 	if c_character == "assassin" and finished_stage == 0:
+		print("Loading character level")
 		save_data();
 		get_tree().change_scene("res://Levels//Character_Levels//Level_" + str(level_assassin) + ".tscn")
 	elif c_character == "bat" and finished_stage == 1:
@@ -67,7 +73,7 @@ func _on_Reset_Button_pressed():
 	$Buttons/Button_Sound.play();
 	level_assassin = 1
 	level_bat = 1
-	finished_stage = 0
+	finished_stage = -1
 	save_data()
 	get_tree().change_scene("res://UserInterface/UI.tscn")
 

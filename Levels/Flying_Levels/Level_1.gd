@@ -3,7 +3,7 @@ extends Node2D
 var level_assassin = 1
 var level_bat = 1
 var c_character = 0
-var finished_stage = 1
+var finished_stage = 2
 
 func save_data():
 	var c_file = File.new();

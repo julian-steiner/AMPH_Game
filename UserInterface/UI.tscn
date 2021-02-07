@@ -188,7 +188,7 @@ position = Vector2( 495.924, 126.149 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 2 )
 animation = "IDLE"
-frame = 2
+frame = 15
 playing = true
 
 [node name="Bat_sprite" type="AnimatedSprite" parent="Buttons"]
@@ -196,7 +196,7 @@ position = Vector2( 1350.28, 199.071 )
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 3 )
 animation = "IDLE"
-frame = 1
+frame = 3
 playing = true
 __meta__ = {
 "_editor_description_": "."
