@@ -58,7 +58,6 @@ func _on_Reset_Button_pressed():
 	level_bat = 1
 	save_data()
 
-
 func _on_Tutorial_Button_pressed():
 	if c_character == "assassin":
 		save_data();
