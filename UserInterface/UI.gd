@@ -57,7 +57,7 @@ func _on_Start_Button_pressed():
 		print("Loading character level")
 		save_data();
 		get_tree().change_scene("res://Levels//Character_Levels//Level_" + str(level_assassin) + ".tscn")
-	elif c_character == "bat" and finished_stage == 1:
+	elif c_character == "bat" and finished_stage == 2:
 		save_data();
 		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(level_bat) + ".tscn")
 
