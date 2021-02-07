@@ -47,16 +47,16 @@ func _integrate_forces(state):
 			if contact_normal.dot(Vector2(0,-1)) > 0.5:
 				on_floor = true
 		
-		if Input.is_action_just_pressed("ui_KP 8"):
+		if Input.is_action_just_pressed("ui_KP 8") or Input.is_action_just_pressed("ui_up"):
 			velocity.y = min(velocity.y - upflight_acc*step, -upflight_max)
 			
-		if Input.is_action_just_pressed("ui_KP 5"):
+		if Input.is_action_just_pressed("ui_KP 5") or Input.is_action_just_pressed("ui_down"):
 			velocity.y = max(velocity.y + upflight_acc*step, upflight_max)
 		
-		if Input.is_action_just_pressed("ui_KP 4"):
+		if Input.is_action_just_pressed("ui_KP 4") or Input.is_action_just_pressed("ui_left"):
 			velocity.x = min(velocity.x - xflight_acc*step, -xflight_max)
 	#
-		if Input.is_action_just_pressed("ui_KP 6"):
+		if Input.is_action_just_pressed("ui_KP 6") or Input.is_action_just_pressed("ui_right"):
 			velocity.x = max(velocity.x + xflight_acc*step, xflight_max)
 		
 		if Input.is_action_just_pressed("ui_KP enter"):

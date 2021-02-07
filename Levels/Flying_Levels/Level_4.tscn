@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Levels/Flying_Levels/Level_4.gd" type="Script" id=1]
 [ext_resource path="res://Türen/Door.tscn" type="PackedScene" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://Levels/Flying_Levels/Cage.gd" type="Script" id=30]
 [ext_resource path="res://Levels/Flying_Levels/SalatBizeps.gd" type="Script" id=31]
 [ext_resource path="res://Levels/Flying_Levels/WRO.gd" type="Script" id=32]
+[ext_resource path="res://assets/background/purpleNebula.png" type="Texture" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 74, 64 )
@@ -335,6 +336,13 @@ position = Vector2( -4064, 32 )
 
 [node name="Camera2D" type="Camera2D" parent="FlyingCharakter"]
 current = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="FlyingCharakter"]
+
+[node name="Sprite" type="Sprite" parent="FlyingCharakter/ParallaxBackground"]
+position = Vector2( 966, 544 )
+scale = Vector2( 7.896, 4.488 )
+texture = ExtResource( 33 )
 
 [node name="All_Tuere" type="Node" parent="."]
 
@@ -1900,7 +1908,7 @@ position = Vector2( 36.7454, -28.4033 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "idle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Cage"]
