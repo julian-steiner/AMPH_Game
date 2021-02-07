@@ -28,6 +28,10 @@ var WRO = false;
 var SalatBizeps = false;
 var finnishedGame = false;
 
+var start = false;
+var AttakNum = false;
+var Stopper = false;
+
 var show = 100;
 
 var moving = true;
@@ -118,15 +122,38 @@ func _integrate_forces(state):
 				$AnimatedSprite2.play("Standart")
 				SalatBizeps = false
 
+		if AttakNum:
+			$AnimatedSprite3.play("AttakNum")
+			show -= 1
+			if show <= 0:
+				$AnimatedSprite3.play("Standart")
+				AttakNum = false
+
+		if Stopper:
+			$AnimatedSprite3.play("Stopper")
+			show -= 1
+			if show <= 0:
+				$AnimatedSprite3.play("Standart")
+				Stopper = false
+
 	else:
 		velocity = Vector2(0, 0)
-		set_sleeping(true)
+		if not start:
+			set_sleeping(true)
+		$AnimatedSprite.stop()
 		if finnishedGame:
 			$AnimatedSprite2.play("FinnishedGame")
-		$AnimatedSprite.stop()
+		if start:
+			$AnimatedSprite3.play("Bewegung2")
+			show -= 1
+			if show == 0:
+				moving = true
+				$AnimatedSprite3.play("Standart")
+				start = false
 
 func _animation_handling(velocity, on_floor):
 	if hp <= 0:
+		$AnimatedSprite.play("Death")
 		$Sounds/Hurt_Sound.play();
 		$HealthBar.value = hp
 		counter += step

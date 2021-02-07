@@ -49,6 +49,8 @@ func execute_teleport():
 		get_tree().change_scene("res://Levels//Flying_Levels//Level_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 	elif self.name == "endTutorialDoor":
 		get_tree().change_scene("res://Tutorial//Character//Tutorial_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
+	elif self.name == "endTutorial2Door":
+		get_tree().change_scene("res://Tutorial//FlyingCharacter//Tutorial_" + str(int(get_tree().current_scene.name) + 1) + ".tscn")
 	elif self.name == "endTutorialDoorAbsolute":
 		get_tree().change_scene("res://UserInterface/UI.tscn")
 		level_assassin = 1
