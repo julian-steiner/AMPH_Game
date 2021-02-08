@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tilesets/Dark Castle.tres" type="TileSet" id=1]
 [ext_resource path="res://Player/Character.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/Schriften/Shoot.png" type="Texture" id=6]
 [ext_resource path="res://Tutorial/Character/Shoot.gd" type="Script" id=7]
 [ext_resource path="res://Tutorial/Character/Tutorial_3.gd" type="Script" id=8]
+[ext_resource path="res://assets/background/purpleNebula.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -16,14 +17,14 @@ animations = [ {
 "name": "Shoot",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "Standart",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "Collect",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "Standart",
 "speed": 5.0
 } ]
 
@@ -50,6 +51,13 @@ current = true
 position = Vector2( 0, -200 )
 frames = SubResource( 1 )
 animation = "Standart"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Character/Character"]
+
+[node name="Sprite" type="Sprite" parent="Character/Character/ParallaxBackground"]
+position = Vector2( 604.117, -4.75684 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 9 )
 
 [node name="All_Doors" type="Node" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/Fire.tres" type="TileSet" id=1]
 [ext_resource path="res://Bat/FlyingCharakter.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Tutorial/FlyingCharacter/AttakNum.gd" type="Script" id=6]
 [ext_resource path="res://assets/background/Lava_background.png" type="Texture" id=7]
+[ext_resource path="res://assets/Schriften/AttakNum.png" type="Texture" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -15,7 +16,7 @@ animations = [ {
 "name": "Standart",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "AttakNum",
 "speed": 5.0
@@ -39,6 +40,7 @@ position = Vector2( 28.2991, 362.063 )
 current = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="FlyingCharakter"]
+position = Vector2( 0, -130 )
 frames = SubResource( 1 )
 animation = "AttakNum"
 

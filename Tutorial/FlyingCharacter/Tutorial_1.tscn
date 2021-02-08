@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilesets/Fire.tres" type="TileSet" id=1]
 [ext_resource path="res://Bat/FlyingCharakter.tscn" type="PackedScene" id=2]
@@ -6,21 +6,22 @@
 [ext_resource path="res://Türen/Door.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tutorial/FlyingCharacter/Start.gd" type="Script" id=5]
 [ext_resource path="res://assets/background/Lava_background.png" type="Texture" id=6]
+[ext_resource path="res://assets/Schriften/Bewegung2.png" type="Texture" id=7]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Standart",
+"name": "Bewegung2",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "Bewegung2",
+"name": "Standart",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 96, 64 )
 
 [node name="Tutorial_1" type="Node2D"]
@@ -41,7 +42,8 @@ position = Vector2( 478.804, 489.441 )
 current = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="FlyingCharakter"]
-frames = SubResource( 2 )
+position = Vector2( 0, -130 )
+frames = SubResource( 1 )
 animation = "Bewegung2"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="FlyingCharakter"]
@@ -58,5 +60,5 @@ script = ExtResource( 5 )
 [node name="Start" type="Area2D" parent="Start"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start/Start"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 [connection signal="body_entered" from="Start/Start" to="Start" method="_on_Start_body_entered"]

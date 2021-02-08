@@ -280,7 +280,7 @@ func _integrate_forces(state):
 				if show == 0:
 					Shoot = false
 					Collect = true
-					show = 100
+					show = 150
 					$AnimatedSprite3.play("Standart")
 
 			if Collect:
